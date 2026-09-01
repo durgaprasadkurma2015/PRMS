@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .reset-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .reset-box {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .required {
+            color: red;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 65px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .reset-btn:hover {
+            background: #5568d8;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .message.error {
+            display: block;
+            background: #ffe5e5;
+            color: #c62828;
+        }
+
+        .message.success {
+            display: block;
+            background: #e5f8ec;
+            color: #218838;
+        }
+
+        .back-login {
+            display: block;
+            text-align: center;
+            margin-top: 22px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .back-login:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .reset-box {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="reset-container">
+
+        <div class="reset-box">
+
+            <h1>Reset Password</h1>
+
+            <p class="subtitle">
+                Enter your details to create a new password
+            </p>
+
+            <div id="message" class="message"></div>
+
+            <form id="resetForm">
+
+                <!-- Username -->
+                <div class="input-group">
+
+                    <label for="username">
+                        Username <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- New Password -->
+                <div class="input-group">
+
+                    <label for="password">
+                        New Password <span class="required">*</span>
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter new password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            data-target="password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                        <span class="required">*</span>
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            data-target="confirmPassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Reset Button -->
+                <button
+                    type="submit"
+                    class="reset-btn"
+                >
+                    Reset Password
+                </button>
+
+            </form>
+
+
+            <!-- Back to Login -->
+            <a
+                href="index.html"
+                class="back-login"
+            >
+                ← Back to Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const resetForm =
+            document.getElementById("resetForm");
+
+        const username =
+            document.getElementById("username");
+
+        const password =
+            document.getElementById("password");
+
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+
+        const message =
+            document.getElementById("message");
+
+
+        function showMessage(text, type) {
+
+            message.textContent = text;
+
+            message.className =
+                "message " + type;
+
+        }
+
+
+        // Show / Hide passwords
+        document
+            .querySelectorAll(".show-password")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const target =
+                            document.getElementById(
+                                this.dataset.target
+                            );
+
+                        if (target.type === "password") {
+
+                            target.type = "text";
+
+                            this.textContent = "Hide";
+
+                        } else {
+
+                            target.type = "password";
+
+                            this.textContent = "Show";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        // Form validation
+        resetForm.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const usernameValue =
+        username.value.trim();
+
+    const passwordValue =
+        password.value;
+
+    const confirmValue =
+        confirmPassword.value;
+
+
+    if (usernameValue === "") {
+
+        showMessage(
+            "Please enter your username.",
+            "error"
+        );
+
+        username.focus();
+
+        return;
+    }
+
+
+    if (passwordValue === "") {
+
+        showMessage(
+            "Please enter your new password.",
+            "error"
+        );
+
+        password.focus();
+
+        return;
+    }
+
+
+    if (passwordValue.length < 6) {
+
+        showMessage(
+            "Password must contain at least 6 characters.",
+            "error"
+        );
+
+        password.focus();
+
+        return;
+    }
+
+
+    if (passwordValue !== confirmValue) {
+
+        showMessage(
+            "Passwords do not match.",
+            "error"
+        );
+
+        confirmPassword.focus();
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/api/auth/reset-password",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    username: usernameValue,
+                    password: passwordValue,
+                    confirmPassword: confirmValue
+
+                })
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if (data.success === "true") {
+
+            showMessage(
+                data.message,
+                "success"
+            );
+
+            resetForm.reset();
+
+        } else {
+
+            showMessage(
+                data.message,
+                "error"
+            );
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+            "Unable to connect to the server.",
+            "error"
+        );
+
+    }
+
+});
+
+
+    </script>
+
+</body>
+</html>

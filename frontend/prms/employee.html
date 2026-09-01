@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Details</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            /* background: #ffffff; */
+
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+
+        .employee-container {
+
+            width: 100%;
+
+            max-width: 700px;
+        }
+
+
+        .employee-box {
+
+            background: #ffffff;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            border: 1px solid #eeeeee;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            color: #333;
+
+            margin-bottom: 8px;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 0 18px;
+        }
+
+
+        .input-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .full-width {
+
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #333;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        .required {
+
+            color: red;
+        }
+
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 11px 12px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            background: #fff;
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color: #667eea;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(102, 126, 234, 0.12);
+        }
+
+
+        textarea {
+
+            min-height: 75px;
+
+            resize: vertical;
+        }
+
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #667eea,
+                    #764ba2
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+
+            transition: 0.3s;
+        }
+
+
+        .submit-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(102, 126, 234, 0.35);
+        }
+
+
+        .message {
+
+            display: none;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            background: #e5f8ec;
+
+            color: #218838;
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background: #ffe5e5;
+
+            color: #c62828;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .employee-box {
+
+                padding: 22px 18px;
+            }
+
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .full-width {
+
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="employee-container">
+
+        <div class="employee-box">
+
+
+            <h1>Employee Details</h1>
+
+
+            <p class="subtitle">
+                Enter employee information
+            </p>
+
+
+            <div
+                id="message"
+                class="message">
+            </div>
+
+
+            <form id="employeeForm">
+
+
+                <div class="form-row">
+
+
+                    <!-- 1. Employee Number -->
+
+                    <div class="input-group">
+
+                        <label for="empNo">
+
+                            Emp No
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="empNo"
+                            name="empNo"
+                            placeholder="Enter employee number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 2. Name -->
+
+                    <div class="input-group">
+
+                        <label for="name">
+
+                            Name
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter employee name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 3. Date of Join TCS -->
+
+                    <div class="input-group">
+
+                        <label for="dateOfJoin">
+
+                            Date of Join TCS
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateOfJoin"
+                            name="dateOfJoin"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 4. Previous Experience in TCS -->
+
+                    <div class="input-group">
+
+                        <label for="previousExperience">
+
+                            Previous Exp in TCS
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="previousExperience"
+                            name="previousExperience"
+                            placeholder="e.g. 3 Years"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 5. Skills Set -->
+
+                    <div class="input-group full-width">
+
+                        <label for="skillsSet">
+
+                            Skills Set
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <textarea
+                            id="skillsSet"
+                            name="skillsSet"
+                            placeholder="Enter skills"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- 6. Proposed Module -->
+
+                    <div class="input-group">
+
+                        <label for="proposedModule">
+
+                            Proposed Module
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="proposedModule"
+                            name="proposedModule"
+                            placeholder="Enter proposed module"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 7. BGC Status -->
+
+                    <div class="input-group">
+
+                        <label for="bgcStatus">
+
+                            BGC Status
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <select
+                            id="bgcStatus"
+                            name="bgcStatus"
+                            required
+                        >
+
+                            <option value="">
+                                Select BGC Status
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- 8. BGC Date -->
+
+                    <div class="input-group">
+
+                        <label for="bgcDate">
+
+                            BGC Date
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="date"
+                            id="bgcDate"
+                            name="bgcDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 9. PVC Application Date -->
+
+                    <div class="input-group">
+
+                        <label for="pvcApplicationDate">
+
+                            PVC Application Date
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="date"
+                            id="pvcApplicationDate"
+                            name="pvcApplicationDate"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Submit
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+       const employeeForm =
+    document.getElementById("employeeForm");
+
+const message =
+    document.getElementById("message");
+
+
+function showMessage(text, type) {
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+}
+
+
+employeeForm.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        const employeeData = {
+
+            empNo:
+                document.getElementById(
+                    "empNo"
+                ).value.trim(),
+
+            name:
+                document.getElementById(
+                    "name"
+                ).value.trim(),
+
+            dateOfJoinTcs:
+                document.getElementById(
+                    "dateOfJoin"
+                ).value,
+
+            previousExpInTcs:
+                document.getElementById(
+                    "previousExperience"
+                ).value.trim(),
+
+            skillsSet:
+                document.getElementById(
+                    "skillsSet"
+                ).value.trim(),
+
+            proposedModule:
+                document.getElementById(
+                    "proposedModule"
+                ).value.trim(),
+
+            bgcStatus:
+                document.getElementById(
+                    "bgcStatus"
+                ).value,
+
+            bgcDate:
+                document.getElementById(
+                    "bgcDate"
+                ).value,
+
+            pvcApplicationDate:
+                document.getElementById(
+                    "pvcApplicationDate"
+                ).value
+        };
+
+
+        try {
+
+            const response = await fetch(
+                "http://localhost:8080/api/employees",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify(
+                        employeeData
+                    )
+                }
+            );
+
+
+            const data =
+                await response.json();
+
+
+            if (response.ok &&
+                data.success === true) {
+
+                showMessage(
+                    data.message,
+                    "success"
+                );
+
+                employeeForm.reset();
+
+            } else {
+
+                showMessage(
+                    data.message ||
+                    "Unable to save employee.",
+                    "error"
+                );
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            showMessage(
+                "Unable to connect to the Spring Boot server.",
+                "error"
+            );
+        }
+
+    }
+);
+
+
+
+   
+
+    </script>
+
+
+</body>
+
+</html>

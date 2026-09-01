@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+     
+
+          body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .register-container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .register-box {
+            background: #ffffff;
+            padding: 100px 28px;
+            border-radius: 16px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 45px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 16px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .required {
+            color: red;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            outline: none;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.10);
+        }
+
+        textarea {
+            min-height: 65px;
+            resize: vertical;
+        }
+
+        /* Password */
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 60px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Gender */
+
+        .gender-options {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            min-height: 36px;
+        }
+
+        .gender-options label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .gender-options input {
+            width: auto;
+            margin-right: 4px;
+        }
+
+        /* Register Button */
+
+        .register-btn {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 7px;
+            background: #667eea;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: 0.3s;
+        }
+
+        .register-btn:hover {
+            background: #5568d8;
+        }
+
+        /* Message */
+
+        .message {
+            display: none;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .message.error {
+            display: block;
+            background: #ffe5e5;
+            color: #c62828;
+        }
+
+        .message.success {
+            display: block;
+            background: #e5f8ec;
+            color: #218838;
+        }
+
+        /* Login Link */
+
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 14px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .register-box {
+                padding: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="register-box">
+
+            <h1>Create Account</h1>
+
+            <p class="subtitle">
+                Please fill in your details to register
+            </p>
+
+            <div id="message" class="message"></div>
+
+            <form id="registerForm">
+
+                <div class="form-row">
+
+                    <!-- 1. Username -->
+                    <div class="input-group">
+
+                        <label for="username">
+                            Username <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 2. Name -->
+                    <div class="input-group">
+
+                        <label for="name">
+                            Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    
+
+
+                    <!-- 4. Date of Birth -->
+                    <div class="input-group">
+
+                        <label for="dob">
+                            Date of Birth
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 5. Gender -->
+                    <div class="input-group">
+
+                        <label>
+                            Gender
+                            <span class="required">*</span>
+                        </label>
+
+                        <div class="gender-options">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Male"
+                                    required
+                                >
+                                Male
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Female"
+                                >
+                                Female
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="Other"
+                                >
+                                Other
+                            </label>
+
+                        </div>
+
+                    </div>
+<!-- 3. Role -->
+                    <div class="input-group">
+
+                        <label for="role">
+                            Role <span class="required">*</span>
+                        </label>
+
+                        <select
+                            id="role"
+                            name="role"
+                            required
+                        >
+
+                            <option value="">
+                                Select Role
+                            </option>
+
+                            <option value="Admin">
+                                Admin
+                            </option>
+
+                            <option value="Manager">
+                                Manager
+                            </option>
+
+                            <option value="Employee">
+                                Employee
+                            </option>
+
+                            <option value="User">
+                                User
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- 6. Password -->
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                            <span class="required">*</span>
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                data-target="password"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 7. Confirm Password -->
+                    <div class="input-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                            <span class="required">*</span>
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                data-target="confirmPassword"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 8. Contact -->
+                    <div class="input-group">
+
+                        <label for="contact">
+                            Contact
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="contact"
+                            name="contact"
+                            placeholder="Enter contact number"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 9. Email -->
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter email address"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- 10. Address -->
+                    <div class="input-group full-width">
+
+                        <label for="address">
+                            Address
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            placeholder="Enter your address"
+                            autocomplete="street-address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Register Button -->
+                <button
+                    type="submit"
+                    class="register-btn"
+                >
+                    Register
+                </button>
+
+            </form>
+
+
+            <!-- Back to Login -->
+            <a
+                href="index.html"
+                class="login-link"
+            >
+                ← Back to Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const message =
+            document.getElementById("message");
+
+
+        function showMessage(text, type) {
+
+            message.textContent = text;
+
+            message.className =
+                "message " + type;
+
+        }
+
+
+        /* Show / Hide Password */
+
+        document
+            .querySelectorAll(".show-password")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const target =
+                            document.getElementById(
+                                this.dataset.target
+                            );
+
+                        if (
+                            target.type === "password"
+                        ) {
+
+                            target.type = "text";
+
+                            this.textContent = "Hide";
+
+                        } else {
+
+                            target.type = "password";
+
+                            this.textContent = "Show";
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* Registration Validation */
+
+registerForm.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const role = document.getElementById("role").value;
+    const dob = document.getElementById("dob").value;
+
+    const genderElement =
+        document.querySelector('input[name="gender"]:checked');
+
+    const gender = genderElement
+        ? genderElement.value
+        : "";
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    const contact =
+        document.getElementById("contact").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const address =
+        document.getElementById("address").value.trim();
+
+
+    if (password !== confirmPassword) {
+
+        showMessage(
+            "Passwords do not match.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/api/auth/register",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    username: username,
+                    name: name,
+                    role: role,
+                    dob: dob,
+                    gender: gender,
+                    password: password,
+                    confirmPassword: confirmPassword,
+                    contact: contact,
+                    email: email,
+                    address: address
+
+                })
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if (data.success === "true") {
+
+            showMessage(
+                data.message,
+                "success"
+            );
+
+            registerForm.reset();
+
+        } else {
+
+            showMessage(
+                data.message,
+                "error"
+            );
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+            "Unable to connect to the server.",
+            "error"
+        );
+
+    }
+
+});
+
+
+    </script>
+
+</body>
+</html>
