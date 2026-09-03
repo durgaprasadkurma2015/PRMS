@@ -1,0 +1,429 @@
+/* =================================
+   GLOBAL
+   ================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+
+/* =================================
+   PAGE BACKGROUND
+   ================================= */
+
+body {
+    background: linear-gradient(
+        135deg,
+        #595a5f,
+        #764ba2
+    );
+
+    padding-top: 75px;
+    padding-bottom: 55px;
+}
+
+
+/* =================================
+   COMMON HEADER
+   ================================= */
+
+.system-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    background: #0284c7;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 3px solid #0369a1;
+    border-bottom: 3px solid #0369a1;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.25);
+
+    z-index: 2000;
+}
+
+
+/* =================================
+   SBI LOGO
+   ================================= */
+
+.sbi-logo {
+
+    position: absolute;
+
+    left: 25px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.sbi-logo img {
+
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 50%;
+
+    padding: 4px;
+}
+
+
+/* =================================
+   HEADER TITLE
+   ================================= */
+
+.system-header h1 {
+
+    margin: 0;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+}
+
+
+/* =================================
+   COMMON FOOTER
+   ================================= */
+
+.sbi-website {
+
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 55px;
+
+    background: #0284c7;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 3px solid #0369a1;
+
+    box-shadow:
+        0 -4px 10px rgba(0, 0, 0, 0.25);
+
+    z-index: 2000;
+
+    overflow: hidden;
+}
+
+
+.sbi-website a {
+
+    display: inline-block;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    animation:
+        scrollWebsite 10s linear infinite;
+}
+
+
+@keyframes scrollWebsite {
+
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+
+}
+
+
+/* =================================
+   DASHBOARD LAYOUT
+   ================================= */
+
+.dashboard-layout {
+
+    display: flex;
+
+    min-height:
+        calc(100vh - 130px);
+
+    background: #f5f6fa;
+}
+
+
+/* =================================
+   FIXED SIDEBAR
+   ================================= */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 75px;
+    left: 0;
+    bottom: 55px;
+
+    width: 250px;
+
+    background-color: #212529;
+
+    color: white;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    z-index: 1500;
+}
+
+
+.sidebar-title {
+
+    margin-bottom: 25px;
+
+}
+
+
+.sidebar .nav-link {
+
+    color: white;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+}
+
+
+.sidebar .nav-link:hover {
+
+    background-color:
+        rgba(255, 255, 255, 0.1);
+
+}
+
+
+.sidebar .nav-link.active {
+
+    background-color: #0d6efd;
+
+}
+
+
+/* =================================
+   DASHBOARD RIGHT CONTENT
+   ================================= */
+
+.dashboard-content {
+
+    margin-left: 250px;
+
+    width: calc(100% - 250px);
+
+    min-height:
+        calc(100vh - 130px);
+
+    padding: 25px;
+
+    background-color: #f5f6fa;
+
+}
+
+
+/* =================================
+   DASHBOARD CARDS
+   ================================= */
+
+.dashboard-card {
+
+    transition: 0.2s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =================================
+   ICON BOX
+   ================================= */
+
+.icon-box {
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 22px;
+
+}
+
+
+/* =================================
+   TABLE
+   ================================= */
+
+.table th {
+
+    font-weight: 600;
+
+}
+
+
+.table td,
+.table th {
+
+    padding: 14px;
+
+}
+
+
+/* =================================
+   MOBILE
+   ================================= */
+
+@media (max-width: 767px) {
+
+
+    body {
+
+        padding-top: 65px;
+
+        padding-bottom: 50px;
+
+    }
+
+
+    .system-header {
+
+        height: 65px;
+
+    }
+
+
+    .system-header h1 {
+
+        font-size: 16px;
+
+        margin-left: 55px;
+
+        margin-right: 10px;
+
+    }
+
+
+    .sbi-logo {
+
+        left: 12px;
+
+    }
+
+
+    .sbi-logo img {
+
+        width: 45px;
+        height: 45px;
+
+    }
+
+
+    .sbi-website {
+
+        height: 50px;
+
+    }
+
+
+    .sbi-website a {
+
+        font-size: 16px;
+
+    }
+
+
+    /* Sidebar */
+
+    .sidebar {
+
+        position: relative;
+
+        top: 0;
+        bottom: auto;
+
+        width: 100%;
+
+        min-height: auto;
+
+    }
+
+
+    .dashboard-layout {
+
+        display: block;
+
+    }
+
+
+    .dashboard-content {
+
+        margin-left: 0;
+
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 20px;
+
+    }
+
+}

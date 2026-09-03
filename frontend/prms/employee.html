@@ -1,351 +1,310 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <html lang="en"> <head>
+<meta charset="UTF-8">
 
-<head>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Employee Details</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap 5 -->
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
 
-    <title>Employee Details</title>
+<!-- Common Background / Header / Footer -->
+<link
+    rel="stylesheet"
+    href="common.css">
 
+<style>
 
-    <!-- Bootstrap 5 CSS -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    /* =========================
+       EMPLOYEE PAGE
+       ========================= */
 
-
-    <style>
-
-        /* =========================
-           BODY
-           ========================= */
-
-        body {
-            min-height: 100vh;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            background: linear-gradient(
-                135deg,
-                #595a5f,
-                #764ba2
-            );
-
-            padding: 30px 15px;
-        }
+body {
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 65px;
+}
 
 
-        /* =========================
-           MAIN CONTAINER
-           ========================= */
+
+
+.employee-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+
+    /* =========================
+       EMPLOYEE CONTAINER
+       ========================= */
+.employee-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+
+    /* =========================
+       EMPLOYEE BOX
+       ========================= */
+
+    .employee-box {
+
+        width: 100%;
+
+        background: #ffffff;
+
+        padding: 25px 30px;
+
+        border-radius: 16px;
+
+        border: 1px solid #eeeeee;
+
+        box-shadow:
+            0 5px 25px
+            rgba(0, 0, 0, 0.12);
+    }
+
+    /* =========================
+       TITLE
+       ========================= */
+
+    .employee-title {
+
+        text-align: center;
+
+        color: #333333;
+
+        font-size: 24px;
+
+        font-weight: 700;
+
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+
+        text-align: center;
+
+        color: #777777;
+
+        font-size: 14px;
+
+        margin-bottom: 20px;
+    }
+
+    /* =========================
+       LABEL
+       ========================= */
+
+    .form-label {
+
+        color: #333333;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        margin-bottom: 4px;
+    }
+
+    .required {
+
+        color: red;
+    }
+
+    /* =========================
+       INPUTS
+       ========================= */
+
+    .form-control,
+    .form-select {
+
+        width: 100%;
+
+        padding: 8px 11px;
+
+        border: 1px solid #ddd;
+
+        border-radius: 7px;
+
+        outline: none;
+
+        font-size: 14px;
+
+        background: #ffffff;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+
+        border-color: #667eea;
+
+        box-shadow:
+            0 0 0 3px
+            rgba(102, 126, 234, 0.10);
+    }
+
+    textarea.form-control {
+
+        resize: vertical;
+
+        min-height: 65px;
+    }
+
+    /* =========================
+       MESSAGE
+       ========================= */
+
+    #message {
+
+        font-size: 13px;
+
+        padding: 8px;
+
+        margin-bottom: 12px !important;
+    }
+
+    /* =========================
+       SUBMIT BUTTON
+       ========================= */
+
+    .submit-btn {
+
+        width: 100%;
+
+        padding: 10px;
+
+        border: none;
+
+        border-radius: 7px;
+
+        background: #667eea;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+
+        background: #5568d8;
+
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 6px 15px
+            rgba(102, 126, 234, 0.30);
+    }
+
+    .submit-btn:disabled {
+
+        opacity: 0.7;
+
+        cursor: not-allowed;
+
+        transform: none;
+
+        box-shadow: none;
+    }
+
+    /* =========================
+       BACK TO LOGIN
+       ========================= */
+
+    .back-login {
+
+        display: block;
+
+        text-align: center;
+
+        margin-top: 15px;
+
+        color: #667eea;
+
+        text-decoration: none;
+
+        font-size: 13px;
+
+        font-weight: 700;
+    }
+
+    .back-login:hover {
+
+        text-decoration: underline;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 576px) {
 
         .employee-container {
-            width: 100%;
-            max-width: 600px;
+
+            max-width: 100%;
+
+            max-height:
+                calc(100vh - 135px);
         }
-
-
-        /* =========================
-           SYSTEM TITLE
-           ========================= */
-
-        .system-title {
-
-            text-align: center;
-
-            color: white;
-
-            font-size: 25px;
-
-            font-weight: 700;
-
-            margin-bottom: 30px;
-
-            letter-spacing: 0.5px;
-        }
-
-
-        /* =========================
-           EMPLOYEE BOX
-           ========================= */
 
         .employee-box {
 
-            background: #ffffff;
+            padding: 20px 18px;
 
-            padding: 40px 28px;
-
-            border-radius: 16px;
-
-            border: 1px solid #eeeeee;
-
-            box-shadow:
-                0 5px 25px
-                rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
         }
-
-
-        /* =========================
-           TITLE
-           ========================= */
 
         .employee-title {
 
-            text-align: center;
-
-            color: #333333;
-
-            font-weight: 700;
-
-            margin-bottom: 8px;
+            font-size: 21px;
         }
 
+        .employee-container .row {
 
-        .subtitle {
-
-            text-align: center;
-
-            color: #777777;
-
-            font-size: 14px;
-
-            margin-bottom: 25px;
+            --bs-gutter-y: 0.6rem;
         }
 
+    }
 
-        /* =========================
-           LABEL
-           ========================= */
+</style>
 
-        .form-label {
+</head> <body>
+<!-- =========================
+     COMMON HEADER
+     ========================= -->
 
-            color: #333333;
+<div id="common-header"></div>
 
-            font-size: 15px;
-
-            font-weight: bold;
-
-            margin-bottom: 5px;
-        }
-
-
-        .required {
-
-            color: red;
-        }
-
-
-        /* =========================
-           INPUTS
-           ========================= */
-
-        .form-control,
-        .form-select {
-
-            width: 100%;
-
-            padding: 9px 12px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 7px;
-
-            outline: none;
-
-            font-size: 14px;
-
-            background: #ffffff;
-        }
-
-
-        .form-control:focus,
-        .form-select:focus {
-
-            border-color: #667eea;
-
-            box-shadow:
-                0 0 0 3px
-                rgba(102, 126, 234, 0.10);
-        }
-
-
-        textarea {
-
-            resize: vertical;
-        }
-
-
-        /* =========================
-           SUBMIT BUTTON
-           ========================= */
-
-        .submit-btn {
-
-            width: 100%;
-
-            padding: 11px;
-
-            border: none;
-
-            border-radius: 7px;
-
-            background: #667eea;
-
-            color: white;
-
-            font-size: 15px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-
-        .submit-btn:hover {
-
-            background: #5568d8;
-
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 8px 20px
-                rgba(102, 126, 234, 0.35);
-        }
-
-
-        .submit-btn:disabled {
-
-            opacity: 0.7;
-
-            cursor: not-allowed;
-
-            transform: none;
-
-            box-shadow: none;
-        }
-
-
-        /* =========================
-           BACK TO LOGIN
-           ========================= */
-
-        .back-login {
-
-            display: block;
-
-            text-align: center;
-
-            margin-top: 18px;
-
-            color: #667eea;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            font-weight: bold;
-        }
-
-
-        .back-login:hover {
-
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           MOBILE
-           ========================= */
-
-        @media (max-width: 600px) {
-
-            body {
-
-                padding: 20px 10px;
-            }
-
-
-            .employee-box {
-
-                padding: 25px 20px;
-            }
-
-
-            .system-title {
-
-                font-size: 20px;
-            }
-
-        }
-    /* =========================
-           SBI WEBSITE
-           ========================= */
-
-        .sbi-website {
-            margin-top: 900px;
-
-            color: white;
-
-            font-size: 14px;
-
-            font-weight: 600;
-
-            text-align: center;
-        }
-    </style>
-
-</head>
-
-
-<body>
-
+<!-- =========================
+     EMPLOYEE CONTAINER
+     ========================= -->
 
 <div class="employee-container">
 
-
-    <!-- =================================
-         SYSTEM TITLE
-         ================================= -->
-
-    <h1 class="system-title">
-
-        SBI VENDOR RESOURCE ONBOARDING SYSTEM
-
-    </h1>
-
-
-    <!-- =================================
-         EMPLOYEE BOX
-         ================================= -->
-
     <div class="employee-box">
 
-
-        <!-- Page Heading -->
+        <!-- =========================
+             TITLE
+             ========================= -->
 
         <h2 class="employee-title">
-
             Employee Details
-
         </h2>
 
-
         <p class="subtitle">
-
             Enter employee information
-
         </p>
 
-
-        <!-- =================================
+        <!-- =========================
              MESSAGE
-             ================================= -->
+             ========================= -->
 
         <div
             id="message"
@@ -353,22 +312,17 @@
             role="alert">
         </div>
 
-
-        <!-- =================================
+        <!-- =========================
              EMPLOYEE FORM
-             ================================= -->
+             ========================= -->
 
         <form
             id="employeeForm"
-            novalidate
-        >
+            novalidate>
 
             <div class="row g-3">
 
-
-                <!-- ==========================
-                     1. Employee Number
-                     ========================== -->
+                <!-- Employee Number -->
 
                 <div class="col-12 col-md-6">
 
@@ -387,8 +341,7 @@
                         id="empNo"
                         name="empNo"
                         placeholder="Enter employee number"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please enter employee number.
@@ -396,10 +349,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     2. Name
-                     ========================== -->
+                <!-- Name -->
 
                 <div class="col-12 col-md-6">
 
@@ -418,8 +368,7 @@
                         id="name"
                         name="name"
                         placeholder="Enter employee name"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please enter employee name.
@@ -427,10 +376,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     3. Date of Join TCS
-                     ========================== -->
+                <!-- Date of Join -->
 
                 <div class="col-12 col-md-6">
 
@@ -448,8 +394,7 @@
                         class="form-control"
                         id="dateOfJoin"
                         name="dateOfJoin"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please select date of joining.
@@ -457,10 +402,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     4. Previous Experience
-                     ========================== -->
+                <!-- Previous Experience -->
 
                 <div class="col-12 col-md-6">
 
@@ -479,8 +421,7 @@
                         id="previousExperience"
                         name="previousExperience"
                         placeholder="e.g. 3 Years"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please enter previous experience.
@@ -488,10 +429,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     5. Skills Set
-                     ========================== -->
+                <!-- Skills -->
 
                 <div class="col-12">
 
@@ -508,10 +446,9 @@
                         class="form-control"
                         id="skillsSet"
                         name="skillsSet"
-                        rows="3"
+                        rows="2"
                         placeholder="Enter skills"
-                        required
-                    ></textarea>
+                        required></textarea>
 
                     <div class="invalid-feedback">
                         Please enter skills.
@@ -519,10 +456,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     6. Proposed Module
-                     ========================== -->
+                <!-- Proposed Module -->
 
                 <div class="col-12 col-md-6">
 
@@ -541,8 +475,7 @@
                         id="proposedModule"
                         name="proposedModule"
                         placeholder="Enter proposed module"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please enter proposed module.
@@ -550,10 +483,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     7. BGC Status
-                     ========================== -->
+                <!-- BGC Status -->
 
                 <div class="col-12 col-md-6">
 
@@ -570,8 +500,7 @@
                         id="bgcStatus"
                         name="bgcStatus"
                         class="form-select"
-                        required
-                    >
+                        required>
 
                         <option value="">
                             Select BGC Status
@@ -601,10 +530,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     8. BGC Date
-                     ========================== -->
+                <!-- BGC Date -->
 
                 <div class="col-12 col-md-6">
 
@@ -622,8 +548,7 @@
                         class="form-control"
                         id="bgcDate"
                         name="bgcDate"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please select BGC date.
@@ -631,10 +556,7 @@
 
                 </div>
 
-
-                <!-- ==========================
-                     9. PVC Application Date
-                     ========================== -->
+                <!-- PVC Date -->
 
                 <div class="col-12 col-md-6">
 
@@ -652,8 +574,7 @@
                         class="form-control"
                         id="pvcApplicationDate"
                         name="pvcApplicationDate"
-                        required
-                    >
+                        required>
 
                     <div class="invalid-feedback">
                         Please select PVC application date.
@@ -661,17 +582,14 @@
 
                 </div>
 
+                <!-- Submit -->
 
-                <!-- ==========================
-                     SUBMIT
-                     ========================== -->
-
-                <div class="col-12 mt-3">
+                <div class="col-12">
 
                     <button
                         type="submit"
                         id="submitBtn"
-                        class="btn submit-btn">
+                        class="submit-btn">
 
                         Submit
 
@@ -679,467 +597,407 @@
 
                 </div>
 
-
             </div>
 
         </form>
 
-
-        <!-- ==========================
+        <!-- =========================
              BACK TO LOGIN
-             ========================== -->
-<!-- 
+             ========================= -->
+
         <a
             href="login.html"
             class="back-login">
 
             ← Back to Login
 
-        </a> -->
-
+        </a>
 
     </div>
 
 </div>
-  <!-- =================================
-         SBI WEBSITE
-         ================================= -->
 
-    <div class="sbi-website">
+<!-- =========================
+     COMMON FOOTER
+     ========================= -->
 
-        www.sbi.com
+<div id="common-footer"></div>
 
-    </div>
+<!-- =========================
+     COMMON JAVASCRIPT
+     ========================= -->
 
-<!-- ==========================================
+<script src="common.js"></script>
+
+<!-- =========================
      BOOTSTRAP JS
-     ========================================== -->
+     ========================= -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 
-
 <script>
 
-/* ==========================================
-   FORM ELEMENTS
-   ========================================== */
+    /* ==========================================
+       FORM ELEMENTS
+       ========================================== */
 
-const employeeForm =
-    document.getElementById("employeeForm");
+    const employeeForm =
+        document.getElementById("employeeForm");
 
-const message =
-    document.getElementById("message");
+    const message =
+        document.getElementById("message");
 
-const submitBtn =
-    document.getElementById("submitBtn");
+    const submitBtn =
+        document.getElementById("submitBtn");
 
+    /* ==========================================
+       SHOW MESSAGE
+       ========================================== */
 
-/* ==========================================
-   SHOW MESSAGE
-   ========================================== */
+    function showMessage(text, type) {
 
-function showMessage(text, type) {
+        message.textContent = text;
 
-    message.textContent = text;
+        message.className =
+            "alert text-center";
 
-    message.className =
-        "alert text-center";
+        if (type === "success") {
 
-    if (type === "success") {
+            message.classList.add(
+                "alert-success"
+            );
 
-        message.classList.add(
-            "alert-success"
-        );
+        } else {
 
-    } else {
+            message.classList.add(
+                "alert-danger"
+            );
 
-        message.classList.add(
-            "alert-danger"
-        );
+        }
 
     }
 
-}
+    /* ==========================================
+       HIDE MESSAGE
+       ========================================== */
 
+    function hideMessage() {
 
-/* ==========================================
-   HIDE MESSAGE
-   ========================================== */
+        message.className =
+            "alert d-none text-center";
 
-function hideMessage() {
+        message.textContent = "";
 
-    message.className =
-        "alert d-none text-center";
+    }
 
-    message.textContent = "";
+    /* ==========================================
+       GET FORM DATA
+       ========================================== */
 
-}
+    function getEmployeeData() {
 
+        return {
 
-/* ==========================================
-   GET FORM DATA
-   ========================================== */
+            empNo:
+                document
+                    .getElementById("empNo")
+                    .value
+                    .trim(),
 
-function getEmployeeData() {
+            name:
+                document
+                    .getElementById("name")
+                    .value
+                    .trim(),
 
-    return {
+            dateOfJoinTcs:
+                document
+                    .getElementById("dateOfJoin")
+                    .value,
 
-        empNo:
-            document
-                .getElementById("empNo")
-                .value
-                .trim(),
+            previousExpInTcs:
+                document
+                    .getElementById("previousExperience")
+                    .value
+                    .trim(),
 
-        name:
-            document
-                .getElementById("name")
-                .value
-                .trim(),
+            skillsSet:
+                document
+                    .getElementById("skillsSet")
+                    .value
+                    .trim(),
 
-        dateOfJoinTcs:
-            document
-                .getElementById("dateOfJoin")
-                .value,
+            proposedModule:
+                document
+                    .getElementById("proposedModule")
+                    .value
+                    .trim(),
 
-        previousExpInTcs:
-            document
-                .getElementById("previousExperience")
-                .value
-                .trim(),
+            bgcStatus:
+                document
+                    .getElementById("bgcStatus")
+                    .value,
 
-        skillsSet:
-            document
-                .getElementById("skillsSet")
-                .value
-                .trim(),
+            bgcDate:
+                document
+                    .getElementById("bgcDate")
+                    .value,
 
-        proposedModule:
-            document
-                .getElementById("proposedModule")
-                .value
-                .trim(),
+            pvcApplicationDate:
+                document
+                    .getElementById("pvcApplicationDate")
+                    .value
 
-        bgcStatus:
-            document
-                .getElementById("bgcStatus")
-                .value,
+        };
 
-        bgcDate:
+    }
+
+    /* ==========================================
+       VALIDATE DATES
+       ========================================== */
+
+    function validateDates(employeeData) {
+
+        const dateOfJoin =
+            new Date(employeeData.dateOfJoinTcs);
+
+        const bgcDate =
+            new Date(employeeData.bgcDate);
+
+        const pvcDate =
+            new Date(employeeData.pvcApplicationDate);
+
+        /* BGC date */
+
+        if (bgcDate < dateOfJoin) {
+
+            showMessage(
+                "BGC Date cannot be before Date of Join TCS.",
+                "error"
+            );
+
             document
                 .getElementById("bgcDate")
-                .value,
+                .focus();
 
-        pvcApplicationDate:
+            return false;
+
+        }
+
+        /* PVC date */
+
+        if (pvcDate < dateOfJoin) {
+
+            showMessage(
+                "PVC Application Date cannot be before Date of Join TCS.",
+                "error"
+            );
+
             document
                 .getElementById("pvcApplicationDate")
-                .value
+                .focus();
 
-    };
+            return false;
 
-}
+        }
 
-
-/* ==========================================
-   VALIDATE DATES
-   ========================================== */
-
-function validateDates(employeeData) {
-
-    const dateOfJoin =
-        new Date(employeeData.dateOfJoinTcs);
-
-    const bgcDate =
-        new Date(employeeData.bgcDate);
-
-    const pvcDate =
-        new Date(employeeData.pvcApplicationDate);
-
-
-    /* BGC date should not be before joining date */
-
-    if (bgcDate < dateOfJoin) {
-
-        showMessage(
-            "BGC Date cannot be before Date of Join TCS.",
-            "error"
-        );
-
-        document
-            .getElementById("bgcDate")
-            .focus();
-
-        return false;
+        return true;
 
     }
 
+    /* ==========================================
+       FORM SUBMIT
+       ========================================== */
 
-    /* PVC date should not be before joining date */
+    employeeForm.addEventListener(
+        "submit",
+        async function (event) {
 
-    if (pvcDate < dateOfJoin) {
+            event.preventDefault();
 
-        showMessage(
-            "PVC Application Date cannot be before Date of Join TCS.",
-            "error"
-        );
+            hideMessage();
 
-        document
-            .getElementById("pvcApplicationDate")
-            .focus();
+            /* Browser validation */
 
-        return false;
+            if (!employeeForm.checkValidity()) {
 
-    }
+                event.stopPropagation();
 
+                employeeForm.classList.add(
+                    "was-validated"
+                );
 
-    return true;
+                showMessage(
+                    "Please fill in all required fields.",
+                    "error"
+                );
 
-}
+                return;
 
-
-/* ==========================================
-   FORM SUBMIT
-   ========================================== */
-
-employeeForm.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-
-        hideMessage();
-
-
-        /* ==================================
-           BOOTSTRAP VALIDATION
-           ================================== */
-
-        if (!employeeForm.checkValidity()) {
-
-            event.stopPropagation();
+            }
 
             employeeForm.classList.add(
                 "was-validated"
             );
 
-            showMessage(
-                "Please fill in all required fields.",
-                "error"
-            );
+            /* Get data */
 
-            return;
+            const employeeData =
+                getEmployeeData();
 
-        }
+            /* Validate dates */
 
+            if (!validateDates(employeeData)) {
 
-        employeeForm.classList.add(
-            "was-validated"
-        );
+                return;
 
+            }
 
-        /* ==================================
-           GET DATA
-           ================================== */
+            /* Disable button */
 
-        const employeeData =
-            getEmployeeData();
+            submitBtn.disabled = true;
 
-
-        /* ==================================
-           DATE VALIDATION
-           ================================== */
-
-        if (!validateDates(employeeData)) {
-
-            return;
-
-        }
-
-
-        /* ==================================
-           DISABLE BUTTON
-           ================================== */
-
-        submitBtn.disabled = true;
-
-        submitBtn.innerHTML =
-            "Submitting...";
-
-
-        try {
-
-
-            /* ==================================
-               API CALL
-               ================================== */
-
-            const response =
-                await fetch(
-                    "http://localhost:8080/api/employees",
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:
-                            JSON.stringify(
-                                employeeData
-                            )
-                    }
-                );
-
-
-            /* ==================================
-               READ RESPONSE
-               ================================== */
-
-            let data;
+            submitBtn.innerHTML =
+                "Submitting...";
 
             try {
 
-                data =
-                    await response.json();
+                /* API CALL */
 
-            } catch (jsonError) {
+                const response =
+                    await fetch(
+                        "http://localhost:8080/api/employees",
+                        {
+                            method: "POST",
 
-                data = {
-                    success: false,
-                    message:
-                        "Invalid response received from server."
-                };
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
 
-            }
+                            body:
+                                JSON.stringify(
+                                    employeeData
+                                )
+                        }
+                    );
 
+                /* Read response */
 
-            /* ==================================
-               SUCCESS
-               ================================== */
+                let data;
 
-            if (
-                response.ok &&
-                data.success === true
-            ) {
+                try {
 
-                showMessage(
-                    data.message ||
-                    "Employee saved successfully.",
-                    "success"
+                    data =
+                        await response.json();
+
+                } catch (jsonError) {
+
+                    data = {
+                        success: false,
+                        message:
+                            "Invalid response received from server."
+                    };
+
+                }
+
+                /* Success */
+
+                if (
+                    response.ok &&
+                    data.success === true
+                ) {
+
+                    showMessage(
+                        data.message ||
+                        "Employee saved successfully.",
+                        "success"
+                    );
+
+                    employeeForm.reset();
+
+                    employeeForm.classList.remove(
+                        "was-validated"
+                    );
+
+                } else {
+
+                    showMessage(
+                        data.message ||
+                        "Unable to save employee.",
+                        "error"
+                    );
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Employee API Error:",
+                    error
                 );
 
-
-                /* Reset form */
-
-                employeeForm.reset();
-
-                employeeForm.classList.remove(
-                    "was-validated"
-                );
-
-
-            } else {
-
-
-                /* ==================================
-                   SERVER ERROR
-                   ================================== */
-
                 showMessage(
-                    data.message ||
-                    "Unable to save employee.",
+                    "Unable to connect to the Spring Boot server.",
                     "error"
                 );
 
+            } finally {
+
+                submitBtn.disabled = false;
+
+                submitBtn.innerHTML =
+                    "Submit";
+
             }
-
-
-        } catch (error) {
-
-
-            /* ==================================
-               CONNECTION ERROR
-               ================================== */
-
-            console.error(
-                "Employee API Error:",
-                error
-            );
-
-
-            showMessage(
-                "Unable to connect to the Spring Boot server.",
-                "error"
-            );
-
-
-        } finally {
-
-
-            /* ==================================
-               ENABLE BUTTON
-               ================================== */
-
-            submitBtn.disabled = false;
-
-            submitBtn.innerHTML =
-                "Submit";
 
         }
+    );
 
-    }
-);
+    /* ==========================================
+       CLEAR VALIDATION
+       ========================================== */
 
+    document
+        .querySelectorAll(
+            "#employeeForm input, #employeeForm textarea, #employeeForm select"
+        )
+        .forEach(function (field) {
 
-/* ==========================================
-   CLEAR VALIDATION WHEN USER TYPES
-   ========================================== */
+            field.addEventListener(
+                "input",
+                function () {
 
-document
-    .querySelectorAll(
-        "#employeeForm input, #employeeForm textarea, #employeeForm select"
-    )
-    .forEach(function (field) {
+                    if (this.checkValidity()) {
 
-        field.addEventListener(
-            "input",
-            function () {
+                        this.classList.remove(
+                            "is-invalid"
+                        );
 
-                if (this.checkValidity()) {
-
-                    this.classList.remove(
-                        "is-invalid"
-                    );
-
-                }
-
-            }
-        );
-
-        field.addEventListener(
-            "change",
-            function () {
-
-                if (this.checkValidity()) {
-
-                    this.classList.remove(
-                        "is-invalid"
-                    );
+                    }
 
                 }
+            );
 
-            }
-        );
+            field.addEventListener(
+                "change",
+                function () {
 
-    });
+                    if (this.checkValidity()) {
 
+                        this.classList.remove(
+                            "is-invalid"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
 
 </script>
 
-
-</body>
-
-</html>
+</body> </html>
