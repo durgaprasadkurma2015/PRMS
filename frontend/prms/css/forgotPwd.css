@@ -1,0 +1,84 @@
+
+/* =========================
+   RESET PASSWORD PAGE
+   ========================= */
+
+body {
+    overflow: hidden;
+}
+
+.reset-page {
+    min-height: calc(100vh - 120px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   RESET CARD
+   ========================= */
+
+.reset-card {
+    width: 100%;
+
+    max-width: 460px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 100, 160, 0.20);
+}
+
+
+.reset-card .card-body {
+    padding: 35px;
+}
+
+
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .form-control {
+    padding-right: 45px;
+}
+
+.password-eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    color: #64748b;
+    font-size: 18px;
+
+    padding: 0;
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.password-eye:hover {
+    color: #0284c7;
+}
+
+.password-eye:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+

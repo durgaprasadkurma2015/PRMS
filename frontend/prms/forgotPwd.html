@@ -15,63 +15,23 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
+        <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
     <!-- Common CSS -->
     <link
         rel="stylesheet"
         href="common.css">
 
     <!-- Forgot Password CSS -->
-    <!-- <link
+    <link
         rel="stylesheet"
-        href="forgotPwd.css"> -->
+        href="forgotPwd.css">
 
        
-   <style>
-/* =========================
-   RESET PASSWORD PAGE
-   ========================= */
-
-body {
-    overflow: hidden;
-}
-
-.reset-page {
-    min-height: calc(100vh - 120px);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
-}
-
-
-/* =========================
-   RESET CARD
-   ========================= */
-
-.reset-card {
-    width: 100%;
-
-    max-width: 460px;
-
-    border: none;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0, 100, 160, 0.20);
-}
-
-
-.reset-card .card-body {
-    padding: 35px;
-}
-
-</style>
+  
 
 
 </head>
@@ -156,85 +116,78 @@ body {
 
                 <!-- New Password -->
 
-                <div class="mb-3">
+               <div class="mb-3">
 
-                    <label
-                        for="password"
-                        class="form-label">
+    <label for="password" class="form-label">
+        New Password
+        <span class="required">*</span>
+    </label>
 
-                        New Password
-                        <span class="required">*</span>
+<div class="password-wrapper">
 
-                    </label>
+    <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Enter new password"
+        autocomplete="new-password"
+        required
+    >
+
+    <button
+        type="button"
+        class="password-eye"
+        data-target="password"
+        aria-label="Show password">
+
+        <i class="bi bi-eye"></i>
+
+    </button>
+
+</div>
 
 
-                    <div class="input-group">
+</div>
 
-                        <input
-                            type="password"
-                            class="form-control"
-                            id="password"
-                            name="password"
-                            placeholder="Enter new password"
-                            autocomplete="new-password"
-                            required
-                        >
-
-
-                        <button
-                            type="button"
-                            class="btn btn-outline-secondary show-password"
-                            data-target="password">
-
-                            Show
-
-                        </button>
-
-                    </div>
-
-                </div>
 
 
 
                 <!-- Confirm Password -->
 
-                <div class="mb-3">
+               <div class="mb-3">
 
-                    <label
-                        for="confirmPassword"
-                        class="form-label">
+    <label for="confirmPassword" class="form-label">
+        Confirm Password
+        <span class="required">*</span>
+    </label>
 
-                        Confirm Password
-                        <span class="required">*</span>
+  <div class="password-wrapper">
 
-                    </label>
+    <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder="Confirm your password"
+        autocomplete="new-password"
+        required
+    >
+
+    <button
+        type="button"
+        class="password-eye"
+        data-target="confirmPassword"
+        aria-label="Show password">
+
+        <i class="bi bi-eye"></i>
+
+    </button>
+
+</div>
 
 
-                    <div class="input-group">
-
-                        <input
-                            type="password"
-                            class="form-control"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            placeholder="Confirm your password"
-                            autocomplete="new-password"
-                            required
-                        >
-
-
-                        <button
-                            type="button"
-                            class="btn btn-outline-secondary show-password"
-                            data-target="confirmPassword">
-
-                            Show
-
-                        </button>
-
-                    </div>
-
-                </div>
+</div>
 
 
 
@@ -282,238 +235,16 @@ body {
          COMMON JAVASCRIPT
          ========================= -->
 
-    <script src="common.js"></script>
+    <script src="../prms/javascript/common.js"></script>
+
+        <script src="../prms/javascript/forgotPwd.js"></script>
 
 
  
 
 
 
-    <!-- ==================================
-         JAVASCRIPT
-         ================================== -->
-
-    <script>
-
-        const resetForm =
-            document.getElementById("resetForm");
-
-        const username =
-            document.getElementById("username");
-
-        const password =
-            document.getElementById("password");
-
-        const confirmPassword =
-            document.getElementById("confirmPassword");
-
-        const message =
-            document.getElementById("message");
-
-
-        /* =========================
-           MESSAGE
-           ========================= */
-
-        function showMessage(text, type) {
-
-            message.textContent = text;
-
-            message.className =
-                "message mb-3 " + type;
-
-        }
-
-
-        /* =========================
-           SHOW / HIDE PASSWORD
-           ========================= */
-
-        document
-            .querySelectorAll(".show-password")
-            .forEach(button => {
-
-                button.addEventListener(
-                    "click",
-                    function () {
-
-                        const target =
-                            document.getElementById(
-                                this.dataset.target
-                            );
-
-
-                        if (target.type === "password") {
-
-                            target.type = "text";
-
-                            this.textContent = "Hide";
-
-                        } else {
-
-                            target.type = "password";
-
-                            this.textContent = "Show";
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-        /* =========================
-           RESET PASSWORD
-           ========================= */
-
-        resetForm.addEventListener(
-            "submit",
-            async function (event) {
-
-                event.preventDefault();
-
-
-                const usernameValue =
-                    username.value.trim();
-
-                const passwordValue =
-                    password.value;
-
-                const confirmValue =
-                    confirmPassword.value;
-
-
-                /* Username */
-
-                if (usernameValue === "") {
-
-                    showMessage(
-                        "Please enter your username.",
-                        "error"
-                    );
-
-                    username.focus();
-
-                    return;
-                }
-
-
-                /* New Password */
-
-                if (passwordValue === "") {
-
-                    showMessage(
-                        "Please enter your new password.",
-                        "error"
-                    );
-
-                    password.focus();
-
-                    return;
-                }
-
-
-                /* Password Length */
-
-                if (passwordValue.length < 6) {
-
-                    showMessage(
-                        "Password must contain at least 6 characters.",
-                        "error"
-                    );
-
-                    password.focus();
-
-                    return;
-                }
-
-
-                /* Confirm Password */
-
-                if (passwordValue !== confirmValue) {
-
-                    showMessage(
-                        "Passwords do not match.",
-                        "error"
-                    );
-
-                    confirmPassword.focus();
-
-                    return;
-                }
-
-
-                try {
-
-                    const response = await fetch(
-                        "http://localhost:8080/api/auth/reset-password",
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body: JSON.stringify({
-
-                                username:
-                                    usernameValue,
-
-                                password:
-                                    passwordValue,
-
-                                confirmPassword:
-                                    confirmValue
-
-                            })
-                        }
-                    );
-
-
-                    const data =
-                        await response.json();
-
-
-                    if (data.success === "true") {
-
-                        showMessage(
-                            data.message ||
-                            "Password reset successfully.",
-                            "success"
-                        );
-
-
-                        resetForm.reset();
-
-
-                    } else {
-
-                        showMessage(
-                            data.message ||
-                            "Unable to reset password.",
-                            "error"
-                        );
-
-                    }
-
-
-                } catch (error) {
-
-                    console.error(error);
-
-                    showMessage(
-                        "Unable to connect to the server.",
-                        "error"
-                    );
-
-                }
-
-            }
-        );
-
-    </script>
+    
 
 
 </body>

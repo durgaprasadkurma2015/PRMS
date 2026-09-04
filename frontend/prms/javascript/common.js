@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
     /* =========================
        COMMON HEADER
        ========================= */
 
-    const header =
-        document.getElementById("common-header");
-
+    const header = document.getElementById("common-header");
 
     if (header) {
 
@@ -16,13 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="system-header">
 
                 <div class="sbi-logo">
-
                     <img
                         src="sbi-logo.png"
                         alt="SBI Logo">
-
                 </div>
-
 
                 <h1>
                     SBI VENDOR RESOURCE ONBOARDING SYSTEM
@@ -31,18 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
         `;
-
     }
-
 
 
     /* =========================
        COMMON FOOTER
        ========================= */
 
-    const footer =
-        document.getElementById("common-footer");
-
+    const footer = document.getElementById("common-footer");
 
     if (footer) {
 
@@ -62,18 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
         `;
-
     }
-
 
 
     /* =========================
        COMMON SIDEBAR
        ========================= */
 
-    const sidebar =
-        document.getElementById("common-sidebar");
-
+    const sidebar = document.getElementById("common-sidebar");
 
     if (sidebar) {
 
@@ -81,25 +67,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <aside class="sidebar">
 
-
-                <!-- Sidebar Title -->
-
                 <h4 class="sidebar-title">
 
                     <i class="bi bi-speedometer2 me-2"></i>
 
-                    PRMS Admin
+                    PRMS
 
                 </h4>
 
 
-
-                <!-- Navigation -->
-
                 <ul class="nav nav-pills flex-column gap-2">
-
-
-                    <!-- Dashboard -->
 
                     <li class="nav-item">
 
@@ -108,19 +85,31 @@ document.addEventListener("DOMContentLoaded", function () {
                             class="nav-link"
                             data-page="dashboard">
 
-                            <i
-                                class="bi bi-house-door me-2">
-                            </i>
+                            <i class="bi bi-house-door me-2"></i>
 
                             Dashboard
 
                         </a>
 
                     </li>
+<!-- Account Creation -->
+
+<li class="nav-item">
+
+    <a
+        href="register.html"
+        class="nav-link"
+        data-page="register">
+
+        <i class="bi bi-person-plus me-2"></i>
+
+        Account Creation
+
+    </a>
+
+</li>
 
 
-
-                    <!-- Employee -->
 
                     <li class="nav-item">
 
@@ -129,9 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             class="nav-link"
                             data-page="employee">
 
-                            <i
-                                class="bi bi-people me-2">
-                            </i>
+                            <i class="bi bi-people me-2"></i>
 
                             Employee Details
 
@@ -140,9 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
 
 
-
-                    <!-- Users -->
-
                     <li class="nav-item">
 
                         <a
@@ -150,9 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             class="nav-link"
                             data-page="users">
 
-                            <i
-                                class="bi bi-person-lines-fill me-2">
-                            </i>
+                            <i class="bi bi-person-lines-fill me-2"></i>
 
                             Users
 
@@ -161,9 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
 
 
-
-                    <!-- Reports -->
-
                     <li class="nav-item">
 
                         <a
@@ -171,9 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             class="nav-link"
                             data-page="reports">
 
-                            <i
-                                class="bi bi-file-earmark-text me-2">
-                            </i>
+                            <i class="bi bi-file-earmark-text me-2"></i>
 
                             Reports
 
@@ -182,9 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
 
 
-
-                    <!-- Settings -->
-
                     <li class="nav-item">
 
                         <a
@@ -192,9 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             class="nav-link"
                             data-page="settings">
 
-                            <i
-                                class="bi bi-gear me-2">
-                            </i>
+                            <i class="bi bi-gear me-2"></i>
 
                             Settings
 
@@ -203,18 +175,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
 
 
-
-                    <!-- Logout -->
-
                     <li class="nav-item">
 
                         <a
                             href="login.html"
                             class="nav-link">
 
-                            <i
-                                class="bi bi-box-arrow-right me-2">
-                            </i>
+                            <i class="bi bi-box-arrow-right me-2"></i>
 
                             Logout
 
@@ -222,14 +189,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     </li>
 
-
                 </ul>
-
 
             </aside>
 
         `;
-
 
 
         /* =========================
@@ -243,37 +207,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 .replace(".html", "");
 
 
-        /*
-         * If URL is empty, consider it dashboard
-         */
-
         if (!currentPage) {
-
             currentPage = "dashboard";
-
         }
 
 
-
-        /*
-         * Remove active from all links
-         */
-
         document
-            .querySelectorAll(
-                "#common-sidebar .nav-link"
-            )
+            .querySelectorAll("#common-sidebar .nav-link")
             .forEach(function (link) {
 
                 link.classList.remove("active");
 
             });
 
-
-
-        /*
-         * Add active to current page
-         */
 
         const activeLink =
             document.querySelector(
@@ -284,9 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (activeLink) {
-
             activeLink.classList.add("active");
-
         }
 
     }

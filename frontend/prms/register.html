@@ -10,57 +10,47 @@
 
     <title>Register - SBI Vendor Resource Onboarding System</title>
 
-
     <!-- Bootstrap -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet">
 
-
-    <!-- Common Background/Header/Footer CSS -->
+    <!-- Common CSS -->
     <link
         rel="stylesheet"
         href="common.css">
 
+    <style>
 
-  
+        /* =========================
+           REGISTER PAGE
+           ========================= */
 
+        body {
+            overflow: hidden;
+             background: #f1f5f9;
+    color: #1e293b;
+        }
+        .register-page {
+            min-height: calc(100vh - 120px);
 
-      
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
 
-<style>
-
-        
-
-      /* =========================
-   REGISTER PAGE
-   ========================= */
-
-body {
-    overflow: hidden;
-}
-
-.register-page {
-    min-height: calc(100vh - 120px);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px 20px;
-}
+            padding: 0 20px;
+        }
 
 
-
-/* =========================
-   REGISTER CARD
-   ========================= */
-
+        /* =========================
+           REGISTER CARD
+           ========================= */
 
         .register-card {
             width: 100%;
             max-width: 800px;
 
             border: none;
-
             border-radius: 16px;
 
             box-shadow:
@@ -68,13 +58,9 @@ body {
                 rgba(0, 100, 160, 0.20);
         }
 
-
         .register-card .card-body {
-            padding: 0px 35px;
-           
+            padding: 0 35px 25px;
         }
-
-
 
 
         /* =========================
@@ -83,14 +69,11 @@ body {
 
         .register-title {
             color: #333;
-
             font-weight: 700;
         }
 
-
         .register-subtitle {
             color: #777;
-
             font-size: 14px;
         }
 
@@ -101,12 +84,9 @@ body {
 
         .form-label {
             color: #333;
-
             font-size: 15px;
-
             font-weight: 700;
         }
-
 
         .required {
             color: red;
@@ -116,20 +96,15 @@ body {
         /* =========================
            INPUTS
            ========================= */
-.form-control,
-.form-select {
-    padding: 8px 11px;
 
-    border-radius: 7px;
+        .form-control,
+        .form-select {
+            padding: 8px 11px;
 
-    font-size: 14px;
-}
+            border-radius: 7px;
 
-.mb-3 {
-    margin-bottom: 0.5rem !important;
-}
-
-
+            font-size: 14px;
+        }
 
         .form-control:focus,
         .form-select:focus {
@@ -141,28 +116,13 @@ body {
         }
 
 
-        textarea.form-control {
-            min-height: 70px;
-
-            resize: vertical;
-        }
-
-
         /* =========================
-           PASSWORD SHOW/HIDE
+           READONLY USERNAME
            ========================= */
 
-        .show-password {
-            color: #0284c7;
-
-            font-size: 12px;
-
-            font-weight: 600;
-        }
-
-
-        .show-password:hover {
-            color: #0369a1;
+        .readonly-field {
+            background-color: #e9ecef;
+            cursor: not-allowed;
         }
 
 
@@ -174,47 +134,98 @@ body {
             min-height: 38px;
 
             display: flex;
-
             align-items: center;
 
             gap: 18px;
         }
 
-
         .gender-container .form-check {
             margin: 0;
         }
 
-
         .gender-container .form-check-label {
             font-size: 14px;
-
             cursor: pointer;
         }
 
 
         /* =========================
-           REGISTER BUTTON
+           BUTTON CONTAINER
            ========================= */
 
-       .register-btn {
-    background-color: #0284c7;
-
-    border: none;
-
-    padding: 9px;
-
-    border-radius: 7px;
-
-    font-size: 18px;
-
-    font-weight: 600;
-}
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
 
 
+        /* =========================
+           BUTTONS
+           ========================= */
+
+        .register-btn,
+        .reset-btn,
+        .close-btn {
+
+            width: 120px;
+
+            padding: 8px 15px;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        /* REGISTER */
+
+        .register-btn {
+
+            background-color: #0284c7;
+
+            border: none;
+        }
 
         .register-btn:hover {
+
             background-color: #0369a1;
+        }
+
+
+        /* RESET */
+
+        .reset-btn {
+
+            background-color: #6c757d;
+
+            border: none;
+
+            color: white;
+        }
+
+        .reset-btn:hover {
+
+            background-color: #545b62;
+        }
+
+
+        /* CLOSE */
+
+        .close-btn {
+
+            background-color: #dc3545;
+
+            border: none;
+
+            color: white;
+        }
+
+        .close-btn:hover {
+
+            background-color: #bb2d3b;
         }
 
 
@@ -223,6 +234,7 @@ body {
            ========================= */
 
         .message {
+
             display: none;
 
             padding: 10px;
@@ -234,8 +246,8 @@ body {
             text-align: center;
         }
 
-
         .message.error {
+
             display: block;
 
             background-color: #ffe5e5;
@@ -243,8 +255,8 @@ body {
             color: #c62828;
         }
 
-
         .message.success {
+
             display: block;
 
             background-color: #e5f8ec;
@@ -252,32 +264,7 @@ body {
             color: #218838;
         }
 
-
-        /* =========================
-           BACK TO LOGIN
-           ========================= */
-
-        .login-link {
-            color: #0284c7;
-
-            text-decoration: none;
-
-            font-size: 18px;
-
-            font-weight: 600;
-        }
-
-
-        .login-link:hover {
-            text-decoration: underline;
-        }
-
-
-       
-
     </style>
-
-        
 
 </head>
 
@@ -286,25 +273,31 @@ body {
 
 
 <!-- =========================
-         COMMON HEADER
-         ========================= -->
+     COMMON HEADER
+     ========================= -->
 
-    <div id="common-header"></div>
+<div id="common-header"></div>
+
+ <!-- =========================
+             COMMON SIDEBAR
+             ========================= -->
+
+        <div id="common-sidebar"></div>
 
 
-    <!-- =================================
-         REGISTER CARD
-         ================================= -->
 
-    <div class="register-page">
+<!-- =========================
+     REGISTER PAGE
+     ========================= -->
+
+<div class="register-page">
 
     <div class="card register-card">
-
 
         <div class="card-body">
 
 
-            <!-- Title -->
+            <!-- TITLE -->
 
             <h2 class="text-center register-title mb-2">
                 Create Account
@@ -316,7 +309,7 @@ body {
             </p>
 
 
-            <!-- Message -->
+            <!-- MESSAGE -->
 
             <div
                 id="message"
@@ -324,46 +317,16 @@ body {
             </div>
 
 
-
-            <!-- =================================
+            <!-- =========================
                  REGISTER FORM
-                 ================================= -->
+                 ========================= -->
 
             <form id="registerForm">
-
 
                 <div class="row g-3">
 
 
-                    <!-- Username -->
-
-                    <div class="col-md-6">
-
-                        <label
-                            for="username"
-                            class="form-label">
-
-                            Username
-                            <span class="required">*</span>
-
-                        </label>
-
-
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="username"
-                            name="username"
-                            placeholder="Enter username"
-                            autocomplete="username"
-                            required
-                        >
-
-                    </div>
-
-
-
-                    <!-- Name -->
+                    <!-- 1. NAME -->
 
                     <div class="col-md-6">
 
@@ -376,22 +339,18 @@ body {
 
                         </label>
 
-
                         <input
                             type="text"
                             class="form-control"
                             id="name"
                             name="name"
                             placeholder="Enter your name"
-                            autocomplete="name"
-                            required
-                        >
+                            required>
 
                     </div>
 
 
-
-                    <!-- Date of Birth -->
+                    <!-- 2. DATE OF BIRTH -->
 
                     <div class="col-md-6">
 
@@ -404,20 +363,16 @@ body {
 
                         </label>
 
-
                         <input
                             type="date"
                             class="form-control"
                             id="dob"
                             name="dob"
-                            required
-                        >
+                            required>
 
                     </div>
 
-
-
-                    <!-- Gender -->
+                     <!-- GENDER -->
 
                     <div class="col-md-6">
 
@@ -427,7 +382,6 @@ body {
                             <span class="required">*</span>
 
                         </label>
-
 
                         <div class="gender-container">
 
@@ -440,8 +394,7 @@ body {
                                     name="gender"
                                     id="male"
                                     value="Male"
-                                    required
-                                >
+                                    required>
 
                                 <label
                                     class="form-check-label"
@@ -454,7 +407,6 @@ body {
                             </div>
 
 
-
                             <div class="form-check">
 
                                 <input
@@ -462,8 +414,7 @@ body {
                                     type="radio"
                                     name="gender"
                                     id="female"
-                                    value="Female"
-                                >
+                                    value="Female">
 
                                 <label
                                     class="form-check-label"
@@ -476,7 +427,6 @@ body {
                             </div>
 
 
-
                             <div class="form-check">
 
                                 <input
@@ -484,8 +434,7 @@ body {
                                     type="radio"
                                     name="gender"
                                     id="other"
-                                    value="Other"
-                                >
+                                    value="Other">
 
                                 <label
                                     class="form-check-label"
@@ -497,14 +446,11 @@ body {
 
                             </div>
 
-
                         </div>
 
                     </div>
 
-
-
-                    <!-- Role -->
+                    <!-- 3. ROLE -->
 
                     <div class="col-md-6">
 
@@ -517,13 +463,11 @@ body {
 
                         </label>
 
-
                         <select
                             class="form-select"
                             id="role"
                             name="role"
-                            required
-                        >
+                            required>
 
                             <option value="">
                                 Select Role
@@ -550,8 +494,51 @@ body {
                     </div>
 
 
+                    <!-- 4. MODULE -->
 
-                    <!-- Contact -->
+                    <div class="col-md-6">
+
+                        <label
+                            for="module"
+                            class="form-label">
+
+                            Module
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="module"
+                            name="module"
+                            required>
+
+                            <option value="">
+                                Select Module
+                            </option>
+
+                            <option value="Vendor Management">
+                                Vendor Management
+                            </option>
+
+                            <option value="Resource Management">
+                                Resource Management
+                            </option>
+
+                            <option value="Onboarding">
+                                Onboarding
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- 5. CONTACT NUMBER -->
 
                     <div class="col-md-6">
 
@@ -559,11 +546,10 @@ body {
                             for="contact"
                             class="form-label">
 
-                            Contact
+                            Contact Number
                             <span class="required">*</span>
 
                         </label>
-
 
                         <input
                             type="tel"
@@ -572,14 +558,12 @@ body {
                             name="contact"
                             placeholder="Enter contact number"
                             autocomplete="tel"
-                            required
-                        >
+                            required>
 
                     </div>
 
 
-
-                    <!-- Email -->
+                    <!-- 6. EMAIL ID -->
 
                     <div class="col-md-6">
 
@@ -587,11 +571,10 @@ body {
                             for="email"
                             class="form-label">
 
-                            Email
+                            Email ID
                             <span class="required">*</span>
 
                         </label>
-
 
                         <input
                             type="email"
@@ -600,457 +583,355 @@ body {
                             name="email"
                             placeholder="Enter email address"
                             autocomplete="email"
-                            required
-                        >
+                            required>
 
                     </div>
 
 
-
-                    <!-- Password -->
+                    <!-- 7. PRMS ID -->
 
                     <div class="col-md-6">
 
                         <label
-                            for="password"
+                            for="prmsId"
                             class="form-label">
 
-                            Password
+                            PRMS ID
                             <span class="required">*</span>
 
                         </label>
 
-
-                        <div class="input-group">
-
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="password"
-                                name="password"
-                                placeholder="Enter password"
-                                autocomplete="new-password"
-                                required
-                            >
-
-
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary show-password"
-                                data-target="password">
-
-                                Show
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- Confirm Password -->
-
-                    <div class="col-md-6">
-
-                        <label
-                            for="confirmPassword"
-                            class="form-label">
-
-                            Confirm Password
-                            <span class="required">*</span>
-
-                        </label>
-
-
-                        <div class="input-group">
-
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                placeholder="Confirm password"
-                                autocomplete="new-password"
-                                required
-                            >
-
-
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary show-password"
-                                data-target="confirmPassword">
-
-                                Show
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- Address -->
-
-                    <div class="col-12">
-
-                        <label
-                            for="address"
-                            class="form-label">
-
-                            Address
-                            <span class="required">*</span>
-
-                        </label>
-
-
-                        <textarea
+                        <input
+                            type="text"
                             class="form-control"
-                            id="address"
-                            name="address"
-                            placeholder="Enter your address"
-                            autocomplete="street-address"
-                            required
-                        ></textarea>
+                            id="prmsId"
+                            name="prmsId"
+                            placeholder="Enter PRMS ID"
+                            required>
 
                     </div>
 
+
+                    <!-- 8. USERNAME READONLY -->
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="username"
+                            class="form-label">
+
+                            Username
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control readonly-field"
+                            id="username"
+                            name="username"
+                            value=""
+                            readonly>
+
+                    </div>
+
+
+                   
 
                 </div>
 
 
+                <!-- =========================
+                     ACTION BUTTONS
+                     ========================= -->
 
-                <!-- Register Button -->
+                <div class="action-buttons mt-4">
 
-                <button
-                    type="submit"
-                    class="btn btn-primary register-btn w-100 mt-4">
+                    <button
+                        type="submit"
+                        class="btn btn-primary register-btn">
 
-                    Register
+                        Register
 
-                </button>
+                    </button>
+
+
+                    <button
+                        type="reset"
+                        class="btn reset-btn">
+
+                        Reset
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn close-btn"
+                        id="closeBtn">
+
+                        Close
+
+                    </button>
+
+                </div>
 
 
             </form>
 
-
-
-            <!-- Back to Login -->
-
-            <div class="text-center mt-3">
-
-                <a
-                    href="login.html"
-                    class="login-link">
-
-                    ← Back to Login
-
-                </a>
-
-            </div>
-
-
         </div>
-
 
     </div>
 
-    <!-- =========================
-         COMMON FOOTER
-         ========================= -->
-
-    <div id="common-footer"></div>
+</div>
 
 
-    <!-- =========================
-         COMMON JAVASCRIPT
-         ========================= -->
+<!-- =========================
+     COMMON FOOTER
+     ========================= -->
 
-    <script src="common.js"></script>
-
- 
+<div id="common-footer"></div>
 
 
-    <!-- =================================
-         JAVASCRIPT
-         ================================= -->
+<!-- =========================
+     COMMON JAVASCRIPT
+     ========================= -->
 
-    <script>
-
-
-        const registerForm =
-            document.getElementById("registerForm");
-
-        const message =
-            document.getElementById("message");
+<script src="common.js"></script>
 
 
-        /* =========================
-           SHOW MESSAGE
-           ========================= */
+<!-- =========================
+     REGISTRATION JAVASCRIPT
+     ========================= -->
 
-        function showMessage(text, type) {
+<script>
 
-            message.textContent = text;
+    const registerForm =
+        document.getElementById("registerForm");
 
-            message.className =
-                "message mb-3 " + type;
+    const message =
+        document.getElementById("message");
+
+
+    /* =========================
+       SHOW MESSAGE
+       ========================= */
+
+    function showMessage(text, type) {
+
+        message.textContent = text;
+
+        message.className =
+            "message mb-3 " + type;
+
+    }
+
+
+    /* =========================
+       RESET MESSAGE
+       ========================= */
+
+    registerForm.addEventListener(
+        "reset",
+        function () {
+
+            setTimeout(function () {
+
+                message.textContent = "";
+
+                message.className =
+                    "message mb-3";
+
+            }, 0);
 
         }
+    );
 
 
+    /* =========================
+       CLOSE BUTTON
+       ========================= */
 
-        /* =========================
-           SHOW / HIDE PASSWORD
-           ========================= */
+    document
+        .getElementById("closeBtn")
+        .addEventListener(
+            "click",
+            function () {
 
-        document
-            .querySelectorAll(".show-password")
-            .forEach(button => {
-
-                button.addEventListener(
-                    "click",
-                    function () {
-
-                        const target =
-                            document.getElementById(
-                                this.dataset.target
-                            );
-
-
-                        if (
-                            target.type === "password"
-                        ) {
-
-                            target.type = "text";
-
-                            this.textContent =
-                                "Hide";
-
-                        } else {
-
-                            target.type = "password";
-
-                            this.textContent =
-                                "Show";
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-
-        /* =========================
-           REGISTRATION
-           ========================= */
-
-        registerForm.addEventListener(
-            "submit",
-            async function (event) {
-
-                event.preventDefault();
-
-
-                const username =
-                    document
-                        .getElementById("username")
-                        .value
-                        .trim();
-
-
-                const name =
-                    document
-                        .getElementById("name")
-                        .value
-                        .trim();
-
-
-                const role =
-                    document
-                        .getElementById("role")
-                        .value;
-
-
-                const dob =
-                    document
-                        .getElementById("dob")
-                        .value;
-
-
-                const genderElement =
-                    document.querySelector(
-                        'input[name="gender"]:checked'
-                    );
-
-
-                const gender =
-                    genderElement
-                        ? genderElement.value
-                        : "";
-
-
-                const password =
-                    document
-                        .getElementById("password")
-                        .value;
-
-
-                const confirmPassword =
-                    document
-                        .getElementById("confirmPassword")
-                        .value;
-
-
-                const contact =
-                    document
-                        .getElementById("contact")
-                        .value
-                        .trim();
-
-
-                const email =
-                    document
-                        .getElementById("email")
-                        .value
-                        .trim();
-
-
-                const address =
-                    document
-                        .getElementById("address")
-                        .value
-                        .trim();
-
-
-
-                /* Password Match */
-
-                if (password !== confirmPassword) {
-
-                    showMessage(
-                        "Passwords do not match.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-
-                /* Password Length */
-
-                if (password.length < 6) {
-
-                    showMessage(
-                        "Password must contain at least 6 characters.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-
-                /* API */
-
-                try {
-
-                    const response =
-                        await fetch(
-                            "http://localhost:8080/api/auth/register",
-                            {
-                                method: "POST",
-
-                                headers: {
-                                    "Content-Type":
-                                        "application/json"
-                                },
-
-                                body: JSON.stringify({
-
-                                    username:
-                                        username,
-
-                                    name:
-                                        name,
-
-                                    role:
-                                        role,
-
-                                    dob:
-                                        dob,
-
-                                    gender:
-                                        gender,
-
-                                    password:
-                                        password,
-
-                                    confirmPassword:
-                                        confirmPassword,
-
-                                    contact:
-                                        contact,
-
-                                    email:
-                                        email,
-
-                                    address:
-                                        address
-
-                                })
-                            }
-                        );
-
-
-                    const data =
-                        await response.json();
-
-
-
-                    if (data.success === "true") {
-
-                        showMessage(
-                            data.message ||
-                            "Registration successful.",
-                            "success"
-                        );
-
-
-                        registerForm.reset();
-
-
-                    } else {
-
-                        showMessage(
-                            data.message ||
-                            "Registration failed.",
-                            "error"
-                        );
-
-                    }
-
-
-                } catch (error) {
-
-                    console.error(error);
-
-
-                    showMessage(
-                        "Unable to connect to the server.",
-                        "error"
-                    );
-
-                }
+                window.location.href =
+                    "login.html";
 
             }
         );
 
-    </script>
+
+    /* =========================
+       REGISTRATION
+       ========================= */
+
+    registerForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+            const dob =
+                document
+                    .getElementById("dob")
+                    .value;
+
+
+            const role =
+                document
+                    .getElementById("role")
+                    .value;
+
+
+            const module =
+                document
+                    .getElementById("module")
+                    .value;
+
+
+            const contact =
+                document
+                    .getElementById("contact")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const prmsId =
+                document
+                    .getElementById("prmsId")
+                    .value
+                    .trim();
+
+
+            const username =
+                document
+                    .getElementById("username")
+                    .value
+                    .trim();
+
+
+            const genderElement =
+                document.querySelector(
+                    'input[name="gender"]:checked'
+                );
+
+
+            const gender =
+                genderElement
+                    ? genderElement.value
+                    : "";
+
+
+            /* =========================
+               API CALL
+               ========================= */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "http://localhost:8080/api/auth/register",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                name:
+                                    name,
+
+                                dob:
+                                    dob,
+
+                                role:
+                                    role,
+
+                                module:
+                                    module,
+
+                                contact:
+                                    contact,
+
+                                email:
+                                    email,
+
+                                prmsId:
+                                    prmsId,
+
+                                username:
+                                    username,
+
+                                gender:
+                                    gender
+
+                            })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (data.success === "true") {
+
+                    showMessage(
+                        data.message ||
+                        "Registration successful.",
+                        "success"
+                    );
+
+                    registerForm.reset();
+
+                } else {
+
+                    showMessage(
+                        data.message ||
+                        "Registration failed.",
+                        "error"
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                showMessage(
+                    "Unable to connect to the server.",
+                    "error"
+                );
+
+            }
+
+        }
+    );
+
+</script>
 
 
 </body>
