@@ -1,0 +1,245 @@
+
+
+        /* =========================
+           REGISTER PAGE
+           ========================= */
+
+        body {
+            overflow: hidden;
+             background: #f1f5f9;
+    color: #1e293b;
+        }
+        .register-page {
+            min-height: calc(100vh - 120px);
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            padding: 0 20px;
+        }
+
+
+        /* =========================
+           REGISTER CARD
+           ========================= */
+
+        .register-card {
+            width: 100%;
+            max-width: 800px;
+
+            border: none;
+            border-radius: 16px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 100, 160, 0.20);
+        }
+
+        .register-card .card-body {
+            padding: 0 35px 25px;
+        }
+
+
+        /* =========================
+           TITLE
+           ========================= */
+
+        .register-title {
+            color: #333;
+            font-weight: 700;
+        }
+
+        .register-subtitle {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           LABELS
+           ========================= */
+
+        .form-label {
+            color: #333;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .required {
+            color: red;
+        }
+
+
+        /* =========================
+           INPUTS
+           ========================= */
+
+        .form-control,
+        .form-select {
+            padding: 8px 11px;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #38bdf8;
+
+            box-shadow:
+                0 0 0 0.2rem
+                rgba(56, 189, 248, 0.18);
+        }
+
+
+        /* =========================
+           READONLY USERNAME
+           ========================= */
+
+        .readonly-field {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+
+        /* =========================
+           GENDER
+           ========================= */
+
+        .gender-container {
+            min-height: 38px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .gender-container .form-check {
+            margin: 0;
+        }
+
+        .gender-container .form-check-label {
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           BUTTON CONTAINER
+           ========================= */
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+
+        /* =========================
+           BUTTONS
+           ========================= */
+
+        .register-btn,
+        .reset-btn,
+        .close-btn {
+
+            width: 120px;
+
+            padding: 8px 15px;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+
+        /* REGISTER */
+
+        .register-btn {
+
+            background-color: #0284c7;
+
+            border: none;
+        }
+
+        .register-btn:hover {
+
+            background-color: #0369a1;
+        }
+
+
+        /* RESET */
+
+        .reset-btn {
+
+            background-color: #6c757d;
+
+            border: none;
+
+            color: white;
+        }
+
+        .reset-btn:hover {
+
+            background-color: #545b62;
+        }
+
+
+        /* CLOSE */
+
+        .close-btn {
+
+            background-color: #dc3545;
+
+            border: none;
+
+            color: white;
+        }
+
+        .close-btn:hover {
+
+            background-color: #bb2d3b;
+        }
+
+
+        /* =========================
+           MESSAGE
+           ========================= */
+
+        .message {
+
+            display: none;
+
+            padding: 10px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            text-align: center;
+        }
+
+        .message.error {
+
+            display: block;
+
+            background-color: #ffe5e5;
+
+            color: #c62828;
+        }
+
+        .message.success {
+
+            display: block;
+
+            background-color: #e5f8ec;
+
+            color: #218838;
+        }
+
+    

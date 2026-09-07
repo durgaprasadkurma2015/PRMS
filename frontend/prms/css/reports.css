@@ -1,0 +1,28 @@
+
+            /* =========================
+   REPORT PAGE
+   ========================= */
+
+.report-content {
+    padding: 30px !important;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    min-height: calc(100vh - 70px);
+}
+
+
+/* Report table */
+
+.report-content .card {
+    width: 100%;
+}
+
+.report-content table {
+    width: 100%;
+}
+
+        
