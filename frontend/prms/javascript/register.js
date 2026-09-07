@@ -1,230 +1,580 @@
+(function () {
+
+    /* =====================================================
+       SAMPLE DATA
+    ===================================================== */
+
+    const sampleAccounts = {
+
+        1: {
+            name: "Rahul Kumar",
+            dob: "1990-05-15",
+            gender: "Male",
+            role: "Manager",
+            module: "Vendor Management",
+            contact: "9876543210",
+            email: "rahul@example.com",
+            prmsId: "PRMS001",
+            username: "rahul.kumar"
+        },
+
+        2: {
+            name: "Priya Sharma",
+            dob: "1993-08-20",
+            gender: "Female",
+            role: "Employee",
+            module: "Resource Management",
+            contact: "9876501234",
+            email: "priya@example.com",
+            prmsId: "PRMS002",
+            username: "priya.sharma"
+        },
+
+        3: {
+            name: "Amit Singh",
+            dob: "1988-11-10",
+            gender: "Male",
+            role: "Admin",
+            module: "Onboarding",
+            contact: "9988776655",
+            email: "amit@example.com",
+            prmsId: "PRMS003",
+            username: "amit.singh"
+        }
+
+    };
 
 
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-
-    const registerForm =
+    const form =
         document.getElementById("registerForm");
+
+    const title =
+        document.getElementById("registerTitle");
+
+    const subtitle =
+        document.getElementById("registerSubtitle");
+
+    const viewActions =
+        document.getElementById("viewActions");
+
+    const formActions =
+        document.getElementById("formActions");
+
+    const submitBtn =
+        document.getElementById("submitBtn");
+
+    const resetBtn =
+        document.getElementById("resetBtn");
+
+    const editBtn =
+        document.getElementById("editBtn");
+
+    const deleteBtn =
+        document.getElementById("deleteBtn");
+
+    const closeBtn =
+        document.getElementById("closeBtn");
 
     const message =
         document.getElementById("message");
 
 
-    /* =========================
-       SHOW MESSAGE
-       ========================= */
+    /* =====================================================
+       PARAMETERS
+    ===================================================== */
 
-    function showMessage(text, type) {
+    const hash =
+        window.location.hash;
 
-        message.textContent = text;
+    const queryPosition =
+        hash.indexOf("?");
 
-        message.className =
-            "message mb-3 " + type;
+
+    let params =
+        new URLSearchParams();
+
+
+    if (queryPosition !== -1) {
+
+        params =
+            new URLSearchParams(
+                hash.substring(
+                    queryPosition + 1
+                )
+            );
 
     }
 
 
-    /* =========================
-       RESET MESSAGE
-       ========================= */
+    const accountId =
+        params.get("id");
 
-    registerForm.addEventListener(
-        "reset",
+    const mode =
+        params.get("mode") || "create";
+
+
+    /* =====================================================
+       FIELDS
+    ===================================================== */
+
+    const fields = [
+
+        document.getElementById("name"),
+
+        document.getElementById("dob"),
+
+        document.getElementById("role"),
+
+        document.getElementById("module"),
+
+        document.getElementById("contact"),
+
+        document.getElementById("email"),
+
+        document.getElementById("prmsId")
+
+    ];
+
+
+    /* =====================================================
+       SET READONLY
+    ===================================================== */
+
+    function setReadonly(readonly) {
+
+        fields.forEach(function (field) {
+
+            field.disabled =
+                readonly;
+
+        });
+
+
+        document
+            .querySelectorAll(
+                'input[name="gender"]'
+            )
+            .forEach(function (radio) {
+
+                radio.disabled =
+                    readonly;
+
+            });
+
+
+        /*
+         * Username is always readonly
+         */
+
+        document.getElementById(
+            "username"
+        ).readOnly = true;
+
+    }
+
+
+    /* =====================================================
+       LOAD ACCOUNT
+    ===================================================== */
+
+    function loadAccount(account) {
+
+        document.getElementById(
+            "name"
+        ).value =
+            account.name;
+
+
+        document.getElementById(
+            "dob"
+        ).value =
+            account.dob;
+
+
+        document.getElementById(
+            "role"
+        ).value =
+            account.role;
+
+
+        document.getElementById(
+            "module"
+        ).value =
+            account.module;
+
+
+        document.getElementById(
+            "contact"
+        ).value =
+            account.contact;
+
+
+        document.getElementById(
+            "email"
+        ).value =
+            account.email;
+
+
+        document.getElementById(
+            "prmsId"
+        ).value =
+            account.prmsId;
+
+
+        document.getElementById(
+            "username"
+        ).value =
+            account.username;
+
+
+        const gender =
+            document.querySelector(
+                `input[name="gender"][value="${account.gender}"]`
+            );
+
+
+        if (gender) {
+
+            gender.checked =
+                true;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CREATE
+    ===================================================== */
+
+    function createMode() {
+
+        title.textContent =
+            "Create Account";
+
+
+        subtitle.textContent =
+            "Please fill in your details to register";
+
+
+        form.reset();
+
+
+        setReadonly(false);
+
+
+        viewActions.classList.add(
+            "d-none"
+        );
+
+
+        formActions.classList.remove(
+            "d-none"
+        );
+
+
+        submitBtn.innerHTML = `
+
+            <i class="bi bi-person-plus me-1"></i>
+
+            Register
+
+        `;
+
+
+        resetBtn.classList.remove(
+            "d-none"
+        );
+
+    }
+
+
+    /* =====================================================
+       VIEW
+    ===================================================== */
+
+    function viewMode(id) {
+
+        const account =
+            sampleAccounts[id];
+
+
+        if (!account) {
+
+            showMessage(
+                "Account not found.",
+                "danger"
+            );
+
+            return;
+
+        }
+
+
+        title.textContent =
+            "Account Details";
+
+
+        subtitle.textContent =
+            "View account information";
+
+
+        loadAccount(account);
+
+
+        /*
+         * Disable every field
+         */
+
+        setReadonly(true);
+
+
+        /*
+         * Show Edit / Delete
+         */
+
+        viewActions.classList.remove(
+            "d-none"
+        );
+
+
+        /*
+         * Hide Register / Reset / Close
+         */
+
+        formActions.classList.add(
+            "d-none"
+        );
+
+    }
+
+
+    /* =====================================================
+       EDIT
+    ===================================================== */
+
+    function editMode() {
+
+        title.textContent =
+            "Edit Account";
+
+
+        subtitle.textContent =
+            "Update account information";
+
+
+        setReadonly(false);
+
+
+        viewActions.classList.add(
+            "d-none"
+        );
+
+
+        formActions.classList.remove(
+            "d-none"
+        );
+
+
+        submitBtn.innerHTML = `
+
+            <i class="bi bi-check-circle me-1"></i>
+
+            Update Account
+
+        `;
+
+
+        resetBtn.classList.add(
+            "d-none"
+        );
+
+    }
+
+
+    /* =====================================================
+       MESSAGE
+    ===================================================== */
+
+    function showMessage(
+        text,
+        type
+    ) {
+
+        message.innerHTML = `
+
+            <div class="alert alert-${type}">
+
+                ${text}
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       EDIT BUTTON
+    ===================================================== */
+
+    editBtn.addEventListener(
+        "click",
         function () {
 
-            setTimeout(function () {
-
-                message.textContent = "";
-
-                message.className =
-                    "message mb-3";
-
-            }, 0);
+            editMode();
 
         }
     );
 
 
-    /* =========================
-       CLOSE BUTTON
-       ========================= */
+    /* =====================================================
+       DELETE BUTTON
+    ===================================================== */
 
-    document
-        .getElementById("closeBtn")
-        .addEventListener(
-            "click",
-            function () {
+    deleteBtn.addEventListener(
+        "click",
+        function () {
 
-                window.location.href =
-                    "login.html";
+            const confirmed =
+                confirm(
+                    "Are you sure you want to delete this account?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
 
             }
-        );
 
 
-    /* =========================
-       REGISTRATION
-       ========================= */
+            /*
+             * Backend DELETE API
+             * will go here later.
+             */
 
-    registerForm.addEventListener(
+            showMessage(
+                "Account deleted successfully.",
+                "success"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    window.location.hash =
+                        "account-details";
+
+                },
+                800
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE
+    ===================================================== */
+
+    closeBtn.addEventListener(
+        "click",
+        function () {
+
+            window.location.hash =
+                "account-details";
+
+        }
+    );
+
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
+
+    form.addEventListener(
         "submit",
-        async function (event) {
+        function (event) {
 
             event.preventDefault();
 
 
-            const name =
-                document
-                    .getElementById("name")
-                    .value
-                    .trim();
-
-
-            const dob =
-                document
-                    .getElementById("dob")
-                    .value;
-
-
-            const role =
-                document
-                    .getElementById("role")
-                    .value;
-
-
-            const module =
-                document
-                    .getElementById("module")
-                    .value;
-
-
-            const contact =
-                document
-                    .getElementById("contact")
-                    .value
-                    .trim();
-
-
-            const email =
-                document
-                    .getElementById("email")
-                    .value
-                    .trim();
-
-
-            const prmsId =
-                document
-                    .getElementById("prmsId")
-                    .value
-                    .trim();
-
-
-            const username =
-                document
-                    .getElementById("username")
-                    .value
-                    .trim();
-
-
-            const genderElement =
-                document.querySelector(
-                    'input[name="gender"]:checked'
-                );
-
-
-            const gender =
-                genderElement
-                    ? genderElement.value
-                    : "";
-
-
-            /* =========================
-               API CALL
-               ========================= */
-
-            try {
-
-                const response =
-                    await fetch(
-                        "http://localhost:8080/api/auth/register",
-                        {
-                            method: "POST",
-
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
-
-                            body: JSON.stringify({
-
-                                name:
-                                    name,
-
-                                dob:
-                                    dob,
-
-                                role:
-                                    role,
-
-                                module:
-                                    module,
-
-                                contact:
-                                    contact,
-
-                                email:
-                                    email,
-
-                                prmsId:
-                                    prmsId,
-
-                                username:
-                                    username,
-
-                                gender:
-                                    gender
-
-                            })
-
-                        }
-                    );
-
-
-                const data =
-                    await response.json();
-
-
-                if (data.success === "true") {
-
-                    showMessage(
-                        data.message ||
-                        "Registration successful.",
-                        "success"
-                    );
-
-                    registerForm.reset();
-
-                } else {
-
-                    showMessage(
-                        data.message ||
-                        "Registration failed.",
-                        "error"
-                    );
-
-                }
-
-
-            } catch (error) {
-
-                console.error(error);
+            if (mode === "edit") {
 
                 showMessage(
-                    "Unable to connect to the server.",
-                    "error"
+                    "Account updated successfully.",
+                    "success"
+                );
+
+            } else {
+
+                showMessage(
+                    "Account registered successfully.",
+                    "success"
                 );
 
             }
 
+
+            setTimeout(
+                function () {
+
+                    window.location.hash =
+                        "account-details";
+
+                },
+                800
+            );
+
         }
     );
 
+
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
+
+    if (
+        mode === "view" &&
+        accountId
+    ) {
+
+        viewMode(
+            accountId
+        );
+
+    } else if (
+        mode === "edit" &&
+        accountId
+    ) {
+
+        const account =
+            sampleAccounts[
+                accountId
+            ];
+
+
+        if (account) {
+
+            loadAccount(account);
+
+            editMode();
+
+        } else {
+
+            createMode();
+
+        }
+
+    } else {
+
+        createMode();
+
+    }
+
+})();

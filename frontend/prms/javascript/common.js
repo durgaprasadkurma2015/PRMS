@@ -97,13 +97,13 @@ document.addEventListener("DOMContentLoaded", function () {
 <li class="nav-item">
 
     <a
-        href="register.html"
+        href="account-details.html"
         class="nav-link"
         data-page="register">
 
         <i class="bi bi-person-plus me-2"></i>
 
-        Account Creation
+        Account Details
 
     </a>
 
