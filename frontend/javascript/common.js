@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="sbi-logo">
                     <img
-                        src="sbi-logo.png"
+                        src="../images/sbi-logo.png"
                         alt="SBI Logo">
                 </div>
 
