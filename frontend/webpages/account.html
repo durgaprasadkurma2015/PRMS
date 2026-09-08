@@ -1,0 +1,216 @@
+<!DOCTYPE html> <html lang="en"> <head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Account Details</title>
+
+<!-- Bootstrap -->
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<!-- Common CSS -->
+<link
+    rel="stylesheet"
+    href="../css/common.css">
+
+<!-- Account CSS -->
+<link
+    rel="stylesheet"
+    href="../css/account.css">
+
+</head> <body>
+<!-- COMMON HEADER -->
+<div id="common-header"></div>
+
+
+<!-- DASHBOARD -->
+<div class="dashboard-layout">
+
+    <!-- COMMON SIDEBAR -->
+    <div id="common-sidebar"></div>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+
+        <div class="account-page">
+
+
+            <!-- PAGE HEADER -->
+            <div class="account-page-header">
+
+                <div class="page-title">
+
+                    <div class="title-icon">
+                        <i class="bi bi-person-vcard"></i>
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Account Details
+                        </h2>
+
+                        <p>
+                            View and manage vendor accounts
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CREATE ACCOUNT -->
+                <button
+                    type="button"
+                    class="create-account-btn"
+                    onclick="openCreateAccount()">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    <span>
+                        Create Account
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- TABLE CARD -->
+            <div class="account-table-card">
+
+
+                <!-- TABLE HEADER -->
+                <div class="table-toolbar">
+
+                    <div class="table-heading">
+
+                        <div class="table-heading-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Vendor Accounts
+                            </h5>
+
+                            <span>
+                                Registered vendor account information
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SEARCH -->
+                    <div class="account-search">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="text"
+                            id="accountSearch"
+                            placeholder="Search accounts..."
+                            onkeyup="searchAccounts()">
+
+                    </div>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+
+                    <table class="table account-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="sno-column">
+                                    S.No
+                                </th>
+
+                                <th>
+                                    PRMS ID
+                                </th>
+
+                                <th>
+                                    Vendor Name
+                                </th>
+
+                                <th>
+                                    Username
+                                </th>
+
+                                <th class="action-column">
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="accountTableBody">
+
+                            <!-- JavaScript rows -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- EMPTY STATE -->
+                <div
+                    id="emptyAccountState"
+                    class="empty-account-state"
+                    style="display:none;">
+
+                    <div class="empty-icon">
+                        <i class="bi bi-person-x"></i>
+                    </div>
+
+                    <h6>
+                        No accounts found
+                    </h6>
+
+                    <p>
+                        Try changing your search or create a new account.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+    <!-- =========================
+         COMMON FOOTER
+         ========================= -->
+
+    <div id="common-footer"></div>
+
+<!-- JAVASCRIPT -->
+<script src="../javascript/account.js"></script>
+<script src="../javascript/common.js"></script>
+
+</body> </html>

@@ -69,7 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <h4 class="sidebar-title">
 
-                    <i class="bi bi-speedometer2 me-2"></i>
+           
+
+                    <i class="bi bi-bank2 me-2"></i>
 
                     PRMS
 
@@ -97,9 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <li class="nav-item">
 
     <a
-        href="account-details.html"
+        href="account.html"
         class="nav-link"
-        data-page="register">
+        data-page="account">
 
         <i class="bi bi-person-plus me-2"></i>
 

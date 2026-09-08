@@ -1,0 +1,466 @@
+/* =========================================
+REGISTER PAGE
+========================================= */
+
+.register-page {
+width: 100%;
+padding: 30px 40px;
+}
+
+/* =========================================
+HEADER
+========================================= */
+
+.register-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+
+margin-bottom: 25px;
+
+}
+
+.back-link {
+display: inline-flex;
+align-items: center;
+
+gap: 6px;
+
+margin-bottom: 10px;
+
+color: #64748b;
+
+font-size: 13px;
+
+cursor: pointer;
+
+transition: 0.2s;
+
+}
+
+.back-link:hover {
+color: #2563eb;
+}
+
+.register-header h2 {
+margin: 0;
+
+color: #1e293b;
+
+font-size: 24px;
+
+font-weight: 700;
+
+}
+
+.register-header p {
+margin: 5px 0 0;
+
+color: #64748b;
+
+font-size: 13px;
+
+}
+
+/* =========================================
+ACTION ICONS
+========================================= */
+
+.account-actions {
+display: flex;
+
+align-items: center;
+
+gap: 8px;
+
+}
+
+.icon-action {
+width: 40px;
+height: 40px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+font-size: 16px;
+
+transition: 0.2s ease;
+
+}
+
+/* EDIT */
+
+.edit-action {
+border: 1px solid #dbeafe;
+
+background: #eff6ff;
+
+color: #2563eb;
+
+}
+
+.edit-action:hover {
+background: #2563eb;
+
+color: white;
+
+border-color: #2563eb;
+
+}
+
+/* DELETE */
+
+.delete-action {
+border: 1px solid #fee2e2;
+
+background: #fef2f2;
+
+color: #dc2626;
+
+}
+
+.delete-action:hover {
+background: #dc2626;
+
+color: white;
+
+border-color: #dc2626;
+
+}
+
+/* =========================================
+FORM CARD
+========================================= */
+
+.register-card {
+max-width: 1000px;
+
+background: #ffffff;
+
+border: 1px solid #e5e7eb;
+
+border-radius: 12px;
+
+padding: 25px;
+
+box-shadow:
+    0 5px 20px rgba(15, 23, 42, 0.05);
+
+}
+
+/* =========================================
+CARD TITLE
+========================================= */
+
+.card-title {
+display: flex;
+
+align-items: center;
+
+gap: 12px;
+
+padding-bottom: 20px;
+
+margin-bottom: 22px;
+
+border-bottom: 1px solid #eef0f3;
+
+}
+
+.card-title-icon {
+width: 40px;
+height: 40px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+border-radius: 9px;
+
+background: #eff6ff;
+
+color: #2563eb;
+
+}
+
+.card-title h5 {
+margin: 0;
+
+color: #1e293b;
+
+font-size: 15px;
+
+font-weight: 700;
+
+}
+
+.card-title span {
+display: block;
+
+margin-top: 3px;
+
+color: #94a3b8;
+
+font-size: 12px;
+
+}
+
+/* =========================================
+FORM
+========================================= */
+
+.form-label {
+margin-bottom: 7px;
+
+color: #475569;
+
+font-size: 13px;
+
+font-weight: 600;
+
+}
+
+.form-control,
+.form-select {
+height: 42px;
+
+border-color: #dbe1e8;
+
+border-radius: 7px;
+
+color: #334155;
+
+font-size: 13px;
+
+box-shadow: none;
+
+}
+
+.form-control:focus,
+.form-select:focus {
+border-color: #93c5fd;
+
+box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+
+}
+
+/* =========================================
+READONLY FORM
+========================================= */
+
+.form-control[readonly] {
+background: #f8fafc;
+
+color: #475569;
+
+cursor: default;
+
+}
+
+.form-select:disabled {
+background-color: #f8fafc;
+
+color: #475569;
+
+opacity: 1;
+
+cursor: default;
+
+}
+
+/* =========================================
+FORM BUTTONS
+========================================= */
+
+.form-buttons {
+display: flex;
+
+justify-content: flex-end;
+
+gap: 10px;
+
+margin-top: 30px;
+
+padding-top: 20px;
+
+border-top: 1px solid #eef0f3;
+
+}
+
+.form-buttons .btn {
+min-width: 100px;
+
+height: 40px;
+
+border-radius: 7px;
+
+font-size: 13px;
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+.register-page {
+    padding: 20px 15px;
+}
+
+
+.register-header {
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+
+.register-header h2 {
+    font-size: 20px;
+}
+
+
+.register-card {
+    padding: 18px;
+}
+
+
+.icon-action {
+    width: 36px;
+    height: 36px;
+}
+
+}
+
+
+/* =========================================
+ACCOUNT ACTIONS
+========================================= */
+
+.account-actions {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+/* =========================================
+ACTION ICON BUTTON
+========================================= */
+
+.icon-action {
+width: 40px;
+height: 40px;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 8px;
+
+background: #ffffff;
+
+cursor: pointer;
+
+transition: all 0.2s ease;
+
+}
+
+.icon-action i {
+font-size: 17px;
+}
+
+/* =========================================
+EDIT
+========================================= */
+
+.edit-action {
+border: 1px solid #dbe7f8;
+
+color: #0d6efd;
+
+}
+
+.edit-action:hover {
+background: #0d6efd;
+
+border-color: #0d6efd;
+
+color: #ffffff;
+
+transform: translateY(-1px);
+
+}
+
+/* =========================================
+DELETE
+========================================= */
+
+.delete-action {
+border: 1px solid #f3d6d6;
+
+color: #dc3545;
+
+}
+
+.delete-action:hover {
+background: #dc3545;
+
+border-color: #dc3545;
+
+color: #ffffff;
+
+transform: translateY(-1px);
+
+}
+
+/* =========================================
+DISABLED FORM
+========================================= */
+
+.register-card input:disabled,
+.register-card select:disabled {
+background-color: #f8f9fa;
+
+color: #495057;
+
+cursor: not-allowed;
+
+opacity: 1;
+
+}
+
+/* Disabled radio buttons */
+
+.register-card input[type="radio"]:disabled {
+opacity: 0.7;
+}
+
+/* =========================================
+FORM BUTTONS
+========================================= */
+
+.form-buttons {
+display: flex;
+
+justify-content: flex-end;
+
+gap: 10px;
+
+margin-top: 30px;
+
+padding-top: 20px;
+
+border-top: 1px solid #e9ecef;
+
+}

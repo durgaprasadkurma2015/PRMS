@@ -1,0 +1,568 @@
+Modern Account Details CSS
+
+
+/* =========================================
+ACCOUNT PAGE
+========================================= */
+
+.account-page {
+width: 100%;
+padding: 32px 36px;
+}
+
+/* =========================================
+PAGE HEADER
+========================================= */
+
+.account-page-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+margin-bottom: 28px;
+
+}
+
+.page-title {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.title-icon {
+width: 48px;
+height: 48px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background: linear-gradient(
+    135deg,
+    #0d6efd,
+    #4f8dfd
+);
+
+color: #ffffff;
+
+border-radius: 12px;
+
+box-shadow:
+    0 6px 15px rgba(13, 110, 253, 0.20);
+
+}
+
+.title-icon i {
+font-size: 22px;
+}
+
+.account-page-header h2 {
+margin: 0;
+
+font-size: 25px;
+font-weight: 700;
+
+color: #212529;
+
+}
+
+.account-page-header p {
+margin: 5px 0 0;
+
+color: #7a828a;
+font-size: 14px;
+
+}
+
+/* =========================================
+CREATE BUTTON
+========================================= */
+
+.create-account-btn {
+border: none;
+
+display: flex;
+align-items: center;
+gap: 8px;
+
+padding: 11px 18px;
+
+background: linear-gradient(
+    135deg,
+    #0d6efd,
+    #3d83f7
+);
+
+color: #ffffff;
+
+border-radius: 8px;
+
+font-size: 14px;
+font-weight: 600;
+
+box-shadow:
+    0 5px 14px rgba(13, 110, 253, 0.20);
+
+transition: all 0.2s ease;
+
+}
+
+.create-account-btn:hover {
+color: #ffffff;
+
+transform: translateY(-2px);
+
+box-shadow:
+    0 8px 18px rgba(13, 110, 253, 0.28);
+
+}
+
+.create-account-btn i {
+font-size: 17px;
+}
+
+/* =========================================
+TABLE CARD
+========================================= */
+
+.account-table-card {
+width: 100%;
+
+background: #ffffff;
+
+border: 1px solid #e9ecef;
+
+border-radius: 14px;
+
+overflow: hidden;
+
+box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.05);
+
+}
+
+/* =========================================
+TABLE TOOLBAR
+========================================= */
+
+.table-toolbar {
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding: 20px 24px;
+
+border-bottom: 1px solid #edf0f2;
+
+background: #ffffff;
+
+}
+
+.table-heading {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.table-heading-icon {
+width: 40px;
+height: 40px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background: #eef5ff;
+
+color: #0d6efd;
+
+border-radius: 9px;
+
+}
+
+.table-heading-icon i {
+font-size: 18px;
+}
+
+.table-heading h5 {
+margin: 0;
+
+font-size: 16px;
+
+font-weight: 650;
+
+color: #212529;
+
+}
+
+.table-heading span {
+display: block;
+
+margin-top: 3px;
+
+color: #8a9299;
+
+font-size: 12px;
+
+}
+
+/* =========================================
+SEARCH
+========================================= */
+
+.account-search {
+width: 260px;
+
+height: 40px;
+
+display: flex;
+align-items: center;
+
+gap: 9px;
+
+padding: 0 12px;
+
+background: #f8f9fa;
+
+border: 1px solid #e3e7eb;
+
+border-radius: 8px;
+
+transition: all 0.2s ease;
+
+}
+
+.account-search:focus-within {
+background: #ffffff;
+
+border-color: #86b7fe;
+
+box-shadow:
+    0 0 0 3px rgba(13, 110, 253, 0.10);
+
+}
+
+.account-search i {
+color: #8b949e;
+
+font-size: 15px;
+
+}
+
+.account-search input {
+width: 100%;
+
+border: none;
+outline: none;
+
+background: transparent;
+
+font-size: 13px;
+
+color: #343a40;
+
+}
+
+.account-search input::placeholder {
+color: #9aa1a8;
+}
+
+/* =========================================
+TABLE
+========================================= */
+
+.account-table {
+width: 100%;
+
+margin: 0;
+
+border-collapse: separate;
+border-spacing: 0;
+
+}
+
+.account-table th,
+.account-table td {
+vertical-align: middle;
+
+text-align: center;
+
+}
+
+/* =========================================
+TABLE HEADER
+========================================= */
+
+.account-table thead th {
+padding: 14px 20px;
+
+background: #f8f9fb;
+
+color: #69727b;
+
+border-bottom: 1px solid #e9ecef;
+
+font-size: 12px;
+
+font-weight: 700;
+
+text-transform: uppercase;
+
+letter-spacing: 0.4px;
+
+white-space: nowrap;
+
+}
+
+/* =========================================
+TABLE BODY
+========================================= */
+
+.account-table tbody td {
+padding: 17px 20px;
+
+border-bottom: 1px solid #f0f2f4;
+
+color: #343a40;
+
+font-size: 14px;
+
+}
+
+.account-table tbody tr {
+transition: background 0.2s ease;
+}
+
+.account-table tbody tr:hover {
+background: #f8fbff;
+}
+
+.account-table tbody tr:last-child td {
+border-bottom: none;
+}
+
+/* =========================================
+S.NO
+========================================= */
+
+.sno-column {
+width: 80px;
+
+color: #8b949e;
+
+}
+
+/* =========================================
+PRMS BADGE
+========================================= */
+
+.prms-badge {
+display: inline-flex;
+
+align-items: center;
+
+padding: 5px 10px;
+
+background: #eef5ff;
+
+color: #0d6efd;
+
+border-radius: 6px;
+
+font-size: 12px;
+
+font-weight: 650;
+
+}
+
+/* =========================================
+VENDOR NAME
+========================================= */
+
+.vendor-name {
+display: inline-flex;
+
+align-items: center;
+
+gap: 9px;
+
+font-weight: 600;
+
+color: #343a40;
+
+}
+
+.vendor-avatar {
+width: 30px;
+height: 30px;
+
+display: inline-flex;
+
+align-items: center;
+justify-content: center;
+
+background: #edf3ff;
+
+color: #0d6efd;
+
+border-radius: 50%;
+
+font-size: 13px;
+
+}
+
+/* =========================================
+USERNAME
+========================================= */
+
+.username-text {
+color: #69727b;
+
+font-size: 13px;
+
+}
+
+/* =========================================
+ACTION
+========================================= */
+
+.action-column {
+width: 110px;
+
+text-align: center !important;
+
+}
+
+/* =========================================
+VIEW BUTTON
+========================================= */
+
+.view-btn {
+width: 34px;
+height: 34px;
+
+display: inline-flex;
+
+align-items: center;
+justify-content: center;
+
+padding: 0;
+
+border: 1px solid #dce3eb;
+
+background: #ffffff;
+
+color: #0d6efd;
+
+border-radius: 7px;
+
+transition: all 0.2s ease;
+
+}
+
+.view-btn:hover {
+background: #0d6efd;
+
+color: #ffffff;
+
+border-color: #0d6efd;
+
+transform: translateY(-1px);
+
+box-shadow:
+    0 4px 10px rgba(13, 110, 253, 0.20);
+
+}
+
+.view-btn i {
+font-size: 15px;
+}
+
+/* =========================================
+EMPTY STATE
+========================================= */
+
+.empty-account-state {
+padding: 55px 20px;
+
+text-align: center;
+
+color: #7b858e;
+
+}
+
+.empty-icon {
+width: 55px;
+height: 55px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+margin: 0 auto 12px;
+
+background: #f1f3f5;
+
+color: #8b949e;
+
+border-radius: 50%;
+
+}
+
+.empty-icon i {
+font-size: 23px;
+}
+
+.empty-account-state h6 {
+margin-bottom: 5px;
+
+color: #495057;
+
+font-weight: 600;
+
+}
+
+.empty-account-state p {
+margin: 0;
+
+font-size: 13px;
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+.account-page {
+    padding: 20px 15px;
+}
+
+.account-page-header {
+    align-items: flex-start;
+
+    gap: 15px;
+
+    flex-direction: column;
+}
+
+.create-account-btn {
+    align-self: flex-start;
+}
+
+.table-toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+}
+
+.account-search {
+    width: 100%;
+}
+
+}
