@@ -392,6 +392,7 @@ function validatePassword(showError = true) {
 password.addEventListener(
     "input",
     function () {
+        this.value = this.value.replace(/\s/g, ""); 
 
         /*
          * Maximum password length.
