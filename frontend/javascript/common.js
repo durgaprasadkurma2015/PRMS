@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
 
                         <a
-                            href="users.html"
+                            href="#"
                             class="nav-link"
                             data-page="users">
 
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
 
                         <a
-                            href="reports.html"
+                            href="#"
                             class="nav-link"
                             data-page="reports">
 
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
 
                         <a
-                            href="settings.html"
+                            href="#"
                             class="nav-link"
                             data-page="settings">
 
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
 
                         <a
-                            href="login.html"
+                            href="#"
                             class="nav-link">
 
                             <i class="bi bi-box-arrow-right me-2"></i>

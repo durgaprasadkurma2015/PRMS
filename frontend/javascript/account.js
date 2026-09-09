@@ -188,9 +188,13 @@ accounts.forEach(function(account, index) {
                 aria-label="View Account"
                 onclick="viewAccount(${account.id})">
 
-                <i class="bi bi-eye"></i>
+                
+<i class="bi bi-eye"></i>
+
 
             </button>
+
+            
 
         </td>
 
@@ -202,6 +206,14 @@ accounts.forEach(function(account, index) {
 });
 
 }
+
+function viewAccount(id) {
+
+    window.location.href =
+        `register.html?id=${encodeURIComponent(id)}&mode=view`;
+
+}
+
 
 /* =========================================
 SEARCH ACCOUNTS

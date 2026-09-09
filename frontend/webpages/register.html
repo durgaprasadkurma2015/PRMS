@@ -49,6 +49,7 @@
 
     <div id="common-sidebar"></div>
 
+        <div id="common-footer"></div>
 
     <!-- MAIN CONTENT -->
 
@@ -67,14 +68,14 @@
 
                 <div>
 
-                    <div class="back-link"
+                    <!-- <div class="back-link"
                          onclick="goBack()">
 
                         <i class="bi bi-arrow-left"></i>
 
                         Back to Accounts
 
-                    </div>
+                    </div> -->
 
 
                     <h2 id="pageTitle">
@@ -90,7 +91,7 @@
 
                 <!-- TOP RIGHT ACTIONS -->
 
-                <div
+<div
     id="accountActions"
     class="account-actions"
     style="display: none;">
@@ -106,9 +107,11 @@
 
     </button>
 
+
     <button
         type="button"
         class="icon-action delete-action"
+        id="deleteBtn"
         title="Delete Account"
         onclick="deleteCurrentAccount()">
 
@@ -117,6 +120,7 @@
     </button>
 
 </div>
+
 </div>
             <!-- =================================
                  ACCOUNT FORM
@@ -456,6 +460,17 @@
 
 <div id="formButtons" class="form-buttons">
 
+     <!-- SUBMIT BUTTON -->
+    <button
+        type="submit"
+        class="btn btn-primary">
+
+        <i class="bi bi-check-lg me-1"></i>
+
+        Submit
+
+    </button>
+
     <!-- RESET BUTTON -->
     <button
         type="reset"
@@ -481,16 +496,7 @@
     </button>
 
 
-    <!-- SUBMIT BUTTON -->
-    <button
-        type="submit"
-        class="btn btn-primary">
-
-        <i class="bi bi-check-lg me-1"></i>
-
-        Submit
-
-    </button>
+   
 
 </div>
 
@@ -509,9 +515,58 @@
 
 </div>
 
+<!-- =====================================================
+     CUSTOM CENTER POPUP
+===================================================== -->
+
+<div id="customPopup" class="custom-popup-overlay">
+
+    <div class="custom-popup">
+
+        <div id="popupIcon" class="popup-icon success">
+            <i class="bi bi-check-lg"></i>
+        </div>
+
+        <h4 id="popupTitle">
+            Success
+        </h4>
+
+        <p id="popupMessage">
+            Operation completed successfully.
+        </p>
+
+        <div class="popup-buttons">
+
+            <button
+                type="button"
+                id="popupCancel"
+                class="popup-btn popup-cancel"
+                onclick="closePopup()">
+
+                Cancel
+
+            </button>
+
+            <button
+                type="button"
+                id="popupOk"
+                class="popup-btn popup-ok"
+                onclick="popupOkAction()">
+
+                OK
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- JAVASCRIPT -->
+
+
 
 <script src="../javascript/register.js"></script>
 
