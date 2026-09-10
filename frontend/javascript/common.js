@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <li class="nav-item">
 
     <a
-        href="account.html"
+        href="accountDetails.html"
         class="nav-link"
-        data-page="account">
+        data-page="accountDetails">
 
         <i class="bi bi-person-plus me-2"></i>
 
@@ -116,9 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
 
                         <a
-                            href="employee.html"
+                            href="employeeDetails.html"
                             class="nav-link"
-                            data-page="employee">
+                            data-page="employeeDetails">
 
                             <i class="bi bi-people me-2"></i>
 

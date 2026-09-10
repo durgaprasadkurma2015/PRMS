@@ -1,254 +1,541 @@
+/* =========================================================
+   EMPLOYEE PAGE
+   Same visual style as Register / Account Page
+========================================================= */
 
 
-    /* =========================
-       EMPLOYEE PAGE
-       ========================= */
-
-
-
-
+/* =========================================================
+   EMPLOYEE CONTAINER
+========================================================= */
 
 .employee-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 
-
-    /* =========================
-       EMPLOYEE CONTAINER
-       ========================= */
-.employee-container {
-    width: 100%;
-    max-width: 700px;
-}
-
-
-    /* =========================
-       EMPLOYEE BOX
-       ========================= */
+/* =========================================================
+   EMPLOYEE BOX
+========================================================= */
 
 .employee-box {
     width: 100%;
 
     background: #ffffff;
 
-    padding: 25px 30px;
+    padding: 32px 36px;
 
     border-radius: 16px;
 
-    border: 1px solid #eeeeee;
+    border: 1px solid #e8e8e8;
 
     box-shadow:
-        0 5px 25px
-        rgba(0, 0, 0, 0.12);
+        0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 
-    /* =========================
-       TITLE
-       ========================= */
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.employee-title {
+    margin: 0;
+
+    text-align: center;
+
+    color: #2f3542;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.subtitle {
+    margin-top: 6px;
+    margin-bottom: 28px;
+
+    text-align: center;
+
+    color: #7a7f87;
+
+    font-size: 14px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   FORM LABEL
+========================================================= */
+
+.employee-box .form-label {
+    display: block;
+
+    color: #343a40;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+
+.required {
+    color: #dc3545;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUT / SELECT / TEXTAREA
+========================================================= */
+
+.employee-box .form-control,
+.employee-box .form-select {
+
+    width: 100%;
+
+    min-height: 43px;
+
+    padding: 9px 12px;
+
+    border: 1px solid #dcdfe4;
+
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* =========================================================
+   INPUT HOVER
+========================================================= */
+
+.employee-box .form-control:hover,
+.employee-box .form-select:hover {
+
+    border-color: #bfc4cc;
+}
+
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.employee-box .form-control:focus,
+.employee-box .form-select:focus {
+
+    border-color: #667eea;
+
+    box-shadow:
+        0 0 0 3px rgba(102, 126, 234, 0.12);
+
+    outline: none;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.employee-box textarea.form-control {
+
+    min-height: 95px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.employee-box .form-control::placeholder {
+
+    color: #a0a5ad;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.employee-box .form-select {
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DISABLED / VIEW MODE
+========================================================= */
+
+.employee-box .form-control:disabled,
+.employee-box .form-select:disabled,
+.employee-box textarea:disabled {
+
+    background-color: #f5f6f8;
+
+    color: #555b65;
+
+    border-color: #e1e3e7;
+
+    opacity: 1;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+.employee-box .invalid-feedback {
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+#message {
+
+    width: 100%;
+
+    padding: 10px 12px;
+
+    margin-bottom: 18px !important;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.submit-btn {
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 10px 16px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #667eea;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.submit-btn:hover {
+
+    background: #5568d8;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 16px rgba(102, 126, 234, 0.28);
+}
+
+
+.submit-btn:active {
+
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+
+.submit-btn:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   EMPLOYEE ACTION BUTTONS
+   Used by View / Edit / Delete / Back
+========================================================= */
+
+#employeeActions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    flex-wrap: wrap;
+}
+
+
+#employeeActions button {
+
+    min-height: 42px;
+
+    padding: 9px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+#employeeActions button:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+========================================================= */
+
+#employeeActions .btn-primary {
+
+    background: #667eea;
+
+    border-color: #667eea;
+}
+
+
+#employeeActions .btn-primary:hover {
+
+    background: #5568d8;
+
+    border-color: #5568d8;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+#employeeActions .btn-danger {
+
+    background: #dc3545;
+
+    border-color: #dc3545;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+#employeeActions .btn-secondary {
+
+    background: #6c757d;
+
+    border-color: #6c757d;
+}
+
+
+/* =========================================================
+   BOOTSTRAP ROW SPACING
+========================================================= */
+
+.employee-box .row {
+
+    --bs-gutter-x: 1.25rem;
+
+    --bs-gutter-y: 1.15rem;
+}
+
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+.employee-box input[type="date"] {
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   FORM BUTTON AREA
+========================================================= */
+
+.employee-box .col-12.mt-3 {
+
+    margin-top: 18px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .employee-container {
+
+        max-width: 100%;
+
+        padding: 15px;
+    }
+
+
+    .employee-box {
+
+        padding: 25px 22px;
+
+        border-radius: 14px;
+    }
+
 
     .employee-title {
 
-        text-align: center;
-
-        color: #333333;
-
-        font-size: 24px;
-
-        font-weight: 700;
-
-        margin-bottom: 5px;
+        font-size: 22px;
     }
+
 
     .subtitle {
 
-        text-align: center;
+        margin-bottom: 22px;
+    }
 
-        color: #777777;
 
-        font-size: 14px;
+    .employee-box .row {
+
+        --bs-gutter-y: 0.9rem;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .employee-container {
+
+        padding: 10px;
+    }
+
+
+    .employee-box {
+
+        padding: 22px 17px;
+
+        border-radius: 12px;
+    }
+
+
+    .employee-title {
+
+        font-size: 20px;
+    }
+
+
+    .subtitle {
+
+        font-size: 13px;
 
         margin-bottom: 20px;
     }
 
-    /* =========================
-       LABEL
-       ========================= */
 
-    .form-label {
-
-        color: #333333;
-
-        font-size: 14px;
-
-        font-weight: 700;
-
-        margin-bottom: 4px;
-    }
-
-    .required {
-
-        color: red;
-    }
-
-    /* =========================
-       INPUTS
-       ========================= */
-
-    .form-control,
-    .form-select {
-
-        width: 100%;
-
-        padding: 8px 11px;
-
-        border: 1px solid #ddd;
-
-        border-radius: 7px;
-
-        outline: none;
-
-        font-size: 14px;
-
-        background: #ffffff;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-
-        border-color: #667eea;
-
-        box-shadow:
-            0 0 0 3px
-            rgba(102, 126, 234, 0.10);
-    }
-
-    textarea.form-control {
-
-        resize: vertical;
-
-        min-height: 65px;
-    }
-
-    /* =========================
-       MESSAGE
-       ========================= */
-
-    #message {
+    .employee-box .form-label {
 
         font-size: 13px;
-
-        padding: 8px;
-
-        margin-bottom: 12px !important;
     }
 
-    /* =========================
-       SUBMIT BUTTON
-       ========================= */
 
-    .submit-btn {
+    .employee-box .form-control,
+    .employee-box .form-select {
 
-        width: 100%;
-
-        padding: 10px;
-
-        border: none;
-
-        border-radius: 7px;
-
-        background: #667eea;
-
-        color: white;
-
-        font-size: 14px;
-
-        font-weight: 700;
-
-        transition: 0.3s;
-    }
-
-    .submit-btn:hover {
-
-        background: #5568d8;
-
-        transform: translateY(-1px);
-
-        box-shadow:
-            0 6px 15px
-            rgba(102, 126, 234, 0.30);
-    }
-
-    .submit-btn:disabled {
-
-        opacity: 0.7;
-
-        cursor: not-allowed;
-
-        transform: none;
-
-        box-shadow: none;
-    }
-
-    /* =========================
-       BACK TO LOGIN
-       ========================= */
-
-    .back-login {
-
-        display: block;
-
-        text-align: center;
-
-        margin-top: 15px;
-
-        color: #667eea;
-
-        text-decoration: none;
+        min-height: 42px;
 
         font-size: 13px;
-
-        font-weight: 700;
     }
 
-    .back-login:hover {
 
-        text-decoration: underline;
+    .employee-box textarea.form-control {
+
+        min-height: 85px;
     }
 
-    /* =========================
-       MOBILE
-       ========================= */
 
-    @media (max-width: 576px) {
+    #employeeActions {
 
-        .employee-container {
+        flex-direction: column;
 
-            max-width: 100%;
-
-            max-height:
-                calc(100vh - 135px);
-        }
-
-        .employee-box {
-
-            padding: 20px 18px;
-
-            border-radius: 12px;
-        }
-
-        .employee-title {
-
-            font-size: 21px;
-        }
-
-        .employee-container .row {
-
-            --bs-gutter-y: 0.6rem;
-        }
-
+        width: 100%;
     }
 
+
+    #employeeActions button {
+
+        width: 100%;
+    }
+
+}
