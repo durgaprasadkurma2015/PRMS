@@ -155,305 +155,384 @@
 
 
 
-                <form id="accountForm">
+                <form id="accountForm" novalidate>
+
 
 
                     <div class="row g-3">
 
 
                         <!-- PRMS ID -->
+<div class="col-md-6">
 
-                        <div class="col-md-6">
+    <label class="form-label">
+        PRMS ID
+        <span class="required">*</span>
+    </label>
 
-                            <label class="form-label">
-                                PRMS ID
-                            </label>
+    <input
+        type="text"
+        class="form-control"
+        id="prmsId"
+        placeholder="Enter PRMS ID"
+        required>
 
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="prmsId"
-                                placeholder="Enter PRMS ID"
-                                required>
+    <div
+        id="prmsIdError"
+        class="validation-tooltip">
 
-                        </div>
+        Please enter PRMS ID.
+
+    </div>
+
+</div>
+
 
 
                         <!-- VENDOR NAME -->
 
-                        <div class="col-md-6">
+                   <div class="col-md-6">
 
-                            <label class="form-label">
-                                Vendor Name
-                            </label>
+    <label class="form-label">
+        Vendor Name
+        <span class="required">*</span>
+    </label>
 
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="vendorName"
-                                placeholder="Enter vendor name"
-                                required>
+    <input
+        type="text"
+        class="form-control"
+        id="vendorName"
+        placeholder="Enter vendor name"
+        required>
 
-                        </div>
+    <div
+        id="vendorNameError"
+        class="validation-tooltip">
+
+        Please enter Vendor Name.
+
+    </div>
+
+</div>
+
 
                           <!-- 2. DATE OF BIRTH -->
 
-                    <div class="col-md-6">
+                  <div class="col-md-6">
 
-                        <label
-                            for="dob"
-                            class="form-label">
+    <label
+        for="dob"
+        class="form-label">
 
-                            Date of Birth
-                            <span class="required">*</span>
+        Date of Birth
+        <span class="required">*</span>
 
-                        </label>
+    </label>
 
-                        <input
-                            type="date"
-                            class="form-control"
-                            id="dob"
-                            name="dob"
-                            required>
+    <input
+        type="date"
+        class="form-control"
+        id="dob"
+        name="dob"
+        required>
 
-                    </div>
+    <div
+        id="dobError"
+        class="validation-tooltip">
+
+        Please select Date of Birth.
+
+    </div>
+
+</div>
 
                      <!-- GENDER -->
 
                     <div class="col-md-6">
 
-                        <label class="form-label">
+    <label class="form-label">
 
-                            Gender
-                            <span class="required">*</span>
+        Gender
+        <span class="required">*</span>
 
-                        </label>
+    </label>
 
-                        <div class="gender-container">
+    <div class="gender-container">
 
+        <div class="form-check">
 
-                            <div class="form-check">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="male"
+                value="Male">
 
-                                <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="gender"
-                                    id="male"
-                                    value="Male"
-                                    required>
+            <label
+                class="form-check-label"
+                for="male">
 
-                                <label
-                                    class="form-check-label"
-                                    for="male">
+                Male
 
-                                    Male
+            </label>
 
-                                </label>
-
-                            </div>
+        </div>
 
 
-                            <div class="form-check">
+        <div class="form-check">
 
-                                <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="gender"
-                                    id="female"
-                                    value="Female">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="female"
+                value="Female">
 
-                                <label
-                                    class="form-check-label"
-                                    for="female">
+            <label
+                class="form-check-label"
+                for="female">
 
-                                    Female
+                Female
 
-                                </label>
+            </label>
 
-                            </div>
+        </div>
 
 
-                            <div class="form-check">
+        <div class="form-check">
 
-                                <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="gender"
-                                    id="other"
-                                    value="Other">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="other"
+                value="Other">
 
-                                <label
-                                    class="form-check-label"
-                                    for="other">
+            <label
+                class="form-check-label"
+                for="other">
 
-                                    Other
+                Other
 
-                                </label>
+            </label>
 
-                            </div>
+        </div>
 
-                        </div>
+    </div>
 
-                    </div>
+
+    <div
+        id="genderError"
+        class="validation-tooltip">
+
+        Please select Gender.
+
+    </div>
+
+</div>
 
                     <!-- 3. ROLE -->
 
-                    <div class="col-md-6">
+                  <div class="col-md-6">
 
-                        <label
-                            for="role"
-                            class="form-label">
+    <label
+        for="role"
+        class="form-label">
 
-                            Role
-                            <span class="required">*</span>
+        Role
+        <span class="required">*</span>
 
-                        </label>
+    </label>
 
-                        <select
-                            class="form-select"
-                            id="role"
-                            name="role"
-                            required>
+    <select
+        class="form-select"
+        id="role"
+        name="role"
+        required>
 
-                            <option value="">
-                                Select Role
-                            </option>
+        <option value="">
+            Select Role
+        </option>
 
-                            <option value="Admin">
-                                Admin
-                            </option>
+        <option value="Admin">
+            Admin
+        </option>
 
-                            <option value="Manager">
-                                Manager
-                            </option>
+        <option value="Manager">
+            Manager
+        </option>
 
-                            <option value="Employee">
-                                Employee
-                            </option>
+        <option value="Employee">
+            Employee
+        </option>
 
-                            <option value="User">
-                                User
-                            </option>
+        <option value="User">
+            User
+        </option>
 
-                        </select>
+    </select>
 
-                    </div>
+    <div
+        id="roleError"
+        class="validation-tooltip">
+
+        Please select Role.
+
+    </div>
+
+</div>
+
 
 
                     <!-- 4. MODULE -->
 
                     <div class="col-md-6">
 
-                        <label
-                            for="module"
-                            class="form-label">
+    <label
+        for="module"
+        class="form-label">
 
-                            Module
-                            <span class="required">*</span>
+        Module
+        <span class="required">*</span>
 
-                        </label>
+    </label>
 
-                        <select
-                            class="form-select"
-                            id="module"
-                            name="module"
-                            required>
+    <select
+        class="form-select"
+        id="module"
+        name="module"
+        required>
 
-                            <option value="">
-                                Select Module
-                            </option>
+        <option value="">
+            Select Module
+        </option>
 
-                            <option value="Vendor Management">
-                                Vendor Management
-                            </option>
+        <option value="Vendor Management">
+            Vendor Management
+        </option>
 
-                            <option value="Resource Management">
-                                Resource Management
-                            </option>
+        <option value="Resource Management">
+            Resource Management
+        </option>
 
-                            <option value="Onboarding">
-                                Onboarding
-                            </option>
+        <option value="Onboarding">
+            Onboarding
+        </option>
 
-                            <option value="Other">
-                                Other
-                            </option>
+        <option value="Other">
+            Other
+        </option>
 
-                        </select>
+    </select>
 
-                    </div>
+    <div
+        id="moduleError"
+        class="validation-tooltip">
+
+        Please select Module.
+
+    </div>
+
+</div>
+
 
 
                     <!-- 5. CONTACT NUMBER -->
 
-                    <div class="col-md-6">
+                   <div class="col-md-6">
 
-                        <label
-                            for="contact"
-                            class="form-label">
+    <label
+        for="contact"
+        class="form-label">
 
-                            Contact Number
-                            <span class="required">*</span>
+        Contact Number
+        <span class="required">*</span>
 
-                        </label>
+    </label>
 
-                        <input
-                            type="tel"
-                            class="form-control"
-                            id="contact"
-                            name="contact"
-                            placeholder="Enter contact number"
-                            autocomplete="tel"
-                            required>
+    <input
+        type="tel"
+        class="form-control"
+        id="contact"
+        name="contact"
+        placeholder="Enter contact number"
+        required>
 
-                    </div>
+    <div
+        id="contactError"
+        class="validation-tooltip">
+
+        Please enter Contact Number.
+
+    </div>
+
+</div>
+
 
 
                     <!-- 6. EMAIL ID -->
 
                     <div class="col-md-6">
 
-                        <label
-                            for="email"
-                            class="form-label">
+    <label
+        for="email"
+        class="form-label">
 
-                            Email ID
-                            <span class="required">*</span>
+        Email ID
+        <span class="required">*</span>
 
-                        </label>
+    </label>
 
-                        <input
-                            type="email"
-                            class="form-control"
-                            id="email"
-                            name="email"
-                            placeholder="Enter email address"
-                            autocomplete="email"
-                            required>
+    <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email address"
+        required>
 
-                    </div>
+    <div
+        id="emailError"
+        class="validation-tooltip">
 
+        Please enter a valid Email ID.
+
+    </div>
+
+</div>
 
                         <!-- USERNAME -->
 
-                        <div class="col-md-6">
+                       <div class="col-md-6">
 
-                            <label class="form-label">
-                                Username
-                            </label>
+    <label class="form-label">
 
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="username"
-                                placeholder="Enter username"
-                                required>
+        Username
+        <span class="required">*</span>
 
-                        </div>
+    </label>
+
+    <input
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Enter username"
+        required>
+
+    <div
+        id="usernameError"
+        class="validation-tooltip">
+
+        Please enter Username.
+
+    </div>
+
+</div>
 
 
 
-                    </div>
+
+                
 
 
 

@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================
-       COMMON HEADER
-       ========================= */
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
-    const header = document.getElementById("common-header");
+    const header =
+        document.getElementById("common-header");
 
     if (header) {
 
@@ -13,9 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="system-header">
 
                 <div class="sbi-logo">
+
                     <img
                         src="../images/sbi-logo.png"
                         alt="SBI Logo">
+
                 </div>
 
                 <h1>
@@ -28,11 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================
-       COMMON FOOTER
-       ========================= */
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
-    const footer = document.getElementById("common-footer");
+    const footer =
+        document.getElementById("common-footer");
 
     if (footer) {
 
@@ -55,186 +59,458 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================
-       COMMON SIDEBAR
-       ========================= */
+    /* =====================================================
+       SIDEBAR
+       ===================================================== */
 
-    const sidebar = document.getElementById("common-sidebar");
+    const sidebar =
+        document.getElementById("common-sidebar");
 
-    if (sidebar) {
 
-        sidebar.innerHTML = `
+    if (!sidebar) {
+        return;
+    }
 
-            <aside class="sidebar">
 
-                <h4 class="sidebar-title">
+    sidebar.innerHTML = `
 
-           
+        <aside class="sidebar">
 
-                    <i class="bi bi-bank2 me-2"></i>
+            <!-- SIDEBAR TITLE -->
 
-                    PRMS
+            <h4 class="sidebar-title">
 
-                </h4>
+                <i class="bi bi-bank2 me-2"></i>
 
+                PRMS
 
-                <ul class="nav nav-pills flex-column gap-2">
+            </h4>
 
-                    <li class="nav-item">
 
-                        <a
-                            href="dashboard.html"
-                            class="nav-link"
-                            data-page="dashboard">
+            <ul class="nav nav-pills flex-column gap-2">
 
-                            <i class="bi bi-house-door me-2"></i>
 
-                            Dashboard
+                <!-- =================================================
+                     DASHBOARD
+                     ================================================= -->
 
-                        </a>
+                <li class="nav-item">
 
-                    </li>
-<!-- Account Creation -->
+                    <a
+                        href="dashboard.html"
+                        class="nav-link"
+                        data-page="dashboard">
 
-<li class="nav-item">
+                        <i
+                            class="bi bi-house-door me-2">
+                        </i>
 
-    <a
-        href="accountDetails.html"
-        class="nav-link"
-        data-page="accountDetails">
+                        Dashboard
 
-        <i class="bi bi-person-plus me-2"></i>
+                    </a>
 
-        Account Details
+                </li>
 
-    </a>
 
-</li>
+                <!-- =================================================
+                     ACCOUNT CREATION
+                     ================================================= -->
 
+                <li class="nav-item">
 
 
-                    <li class="nav-item">
+                    <!-- ACCOUNT CREATION BUTTON -->
 
-                        <a
-                            href="employeeDetails.html"
-                            class="nav-link"
-                            data-page="employeeDetails">
+                    <a
+                        href="#accountCreationMenu"
+                        id="accountCreationLink"
+                        class="nav-link d-flex align-items-center"
+                        data-bs-toggle="collapse"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="accountCreationMenu">
 
-                            <i class="bi bi-people me-2"></i>
+                        <i
+                            class="bi bi-person-plus me-2">
+                        </i>
 
-                            Employee Details
+                        <span>
+                            Account Creation
+                        </span>
 
-                        </a>
+                        <i
+                            id="accountCreationArrow"
+                            class="bi bi-chevron-down ms-auto">
+                        </i>
 
-                    </li>
+                    </a>
 
 
-                    <li class="nav-item">
+                    <!-- ACCOUNT CREATION SUBMENU -->
 
-                        <a
-                            href="#"
-                            class="nav-link"
-                            data-page="users">
+                    <div
+                        id="accountCreationMenu"
+                        class="collapse">
 
-                            <i class="bi bi-person-lines-fill me-2"></i>
 
-                            Users
+                        <ul
+                            class="nav flex-column ms-3 mt-1">
 
-                        </a>
 
-                    </li>
+                            <!-- =================================================
+                                 CREATION OF ROLES
+                                 ================================================= -->
 
+                            <li class="nav-item">
 
-                    <li class="nav-item">
+                                <a
+                                    href="register.html"
+                                    class="nav-link submenu-link"
+                                    data-page="register">
 
-                        <a
-                            href="#"
-                            class="nav-link"
-                            data-page="reports">
+                                    <i
+                                        class="bi bi-shield-plus me-2">
+                                    </i>
 
-                            <i class="bi bi-file-earmark-text me-2"></i>
+                                    Creation of Roles
 
-                            Reports
+                                </a>
 
-                        </a>
+                            </li>
 
-                    </li>
 
+                            <!-- =================================================
+                                 DELETION
+                                 ================================================= -->
 
-                    <li class="nav-item">
+                            <li class="nav-item">
 
-                        <a
-                            href="#"
-                            class="nav-link"
-                            data-page="settings">
+                                <a
+                                    href="#"
+                                    class="nav-link submenu-link"
+                                    data-page="deletion">
 
-                            <i class="bi bi-gear me-2"></i>
+                                    <i
+                                        class="bi bi-person-dash me-2">
+                                    </i>
 
-                            Settings
+                                    Deletion
 
-                        </a>
+                                </a>
 
-                    </li>
+                            </li>
 
 
-                    <li class="nav-item">
+                            <!-- =================================================
+                                 MODIFICATION
+                                 ================================================= -->
 
-                        <a
-                            href="#"
-                            class="nav-link">
+                            <li class="nav-item">
 
-                            <i class="bi bi-box-arrow-right me-2"></i>
+                                <a
+                                    href="#"
+                                    class="nav-link submenu-link"
+                                    data-page="modification">
 
-                            Logout
+                                    <i
+                                        class="bi bi-person-gear me-2">
+                                    </i>
 
-                        </a>
+                                    Modification
 
-                    </li>
+                                </a>
 
-                </ul>
+                            </li>
 
-            </aside>
 
-        `;
+                        </ul>
 
+                    </div>
 
-        /* =========================
-           ACTIVE MENU
-           ========================= */
+                </li>
 
-        let currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .replace(".html", "");
 
+                <!-- =================================================
+                     EMPLOYEE CREATION
+                     ================================================= -->
 
-        if (!currentPage) {
-            currentPage = "dashboard";
-        }
+                <li class="nav-item">
 
+                    <a
+                        href="employee.html"
+                        class="nav-link"
+                        data-page="employee">
 
-        document
-            .querySelectorAll("#common-sidebar .nav-link")
-            .forEach(function (link) {
+                        <i
+                            class="bi bi-people me-2">
+                        </i>
 
-                link.classList.remove("active");
+                        Employee Creation
 
-            });
+                    </a>
 
+                </li>
 
-        const activeLink =
-            document.querySelector(
-                '#common-sidebar .nav-link[data-page="' +
-                currentPage +
-                '"]'
+
+                <!-- =================================================
+                     USERS
+                     ================================================= -->
+
+                <li class="nav-item">
+
+                    <a
+                        href="#"
+                        class="nav-link"
+                        data-page="users">
+
+                        <i
+                            class="bi bi-person-lines-fill me-2">
+                        </i>
+
+                        Users
+
+                    </a>
+
+                </li>
+
+
+                <!-- =================================================
+                     REPORTS
+                     ================================================= -->
+
+                <li class="nav-item">
+
+                    <a
+                        href="#"
+                        class="nav-link"
+                        data-page="reports">
+
+                        <i
+                            class="bi bi-file-earmark-text me-2">
+                        </i>
+
+                        Reports
+
+                    </a>
+
+                </li>
+
+
+             
+
+
+
+            </ul>
+
+        </aside>
+
+    `;
+
+
+    /* =====================================================
+       ACCOUNT CREATION ELEMENTS
+       ===================================================== */
+
+    const accountMenu =
+        document.getElementById(
+            "accountCreationMenu"
+        );
+
+
+    const accountLink =
+        document.getElementById(
+            "accountCreationLink"
+        );
+
+
+    const accountArrow =
+        document.getElementById(
+            "accountCreationArrow"
+        );
+
+
+    /* =====================================================
+       CURRENT PAGE
+       ===================================================== */
+
+    let currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .replace(".html", "");
+
+
+    if (!currentPage) {
+
+        currentPage = "dashboard";
+
+    }
+
+
+    /* =====================================================
+       ACCOUNT CREATION PAGES
+       ===================================================== */
+
+    const accountPages = [
+
+        "register",
+        "deletion",
+        "modification"
+
+    ];
+
+
+    /* =====================================================
+       REMOVE ALL ACTIVE STATES
+       ===================================================== */
+
+    document
+        .querySelectorAll(
+            "#common-sidebar .nav-link"
+        )
+        .forEach(function (link) {
+
+            link.classList.remove("active");
+
+        });
+
+
+    /* =====================================================
+       FIND CURRENT PAGE LINK
+       ===================================================== */
+
+    const activeLink =
+        document.querySelector(
+            '#common-sidebar .nav-link[data-page="' +
+            currentPage +
+            '"]'
+        );
+
+
+    /* =====================================================
+       MAKE CURRENT PAGE ACTIVE
+       ===================================================== */
+
+    if (activeLink) {
+
+        activeLink.classList.add("active");
+
+    }
+
+
+    /* =====================================================
+       IF ACCOUNT CREATION PAGE
+       KEEP SUBMENU OPEN
+       ===================================================== */
+
+    if (
+        accountPages.includes(currentPage)
+    ) {
+
+
+        /* Account Creation BLUE */
+
+        accountLink.classList.add(
+            "active"
+        );
+
+
+        /* Open submenu */
+
+        accountMenu.classList.add(
+            "show"
+        );
+
+
+        /* Bootstrap state */
+
+        accountLink.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+
+        /* Arrow UP */
+
+        accountArrow.classList.remove(
+            "bi-chevron-down"
+        );
+
+        accountArrow.classList.add(
+            "bi-chevron-up"
+        );
+
+    }
+
+
+    /* =====================================================
+       ACCOUNT CREATION OPEN
+       ===================================================== */
+
+    accountMenu.addEventListener(
+        "shown.bs.collapse",
+        function () {
+
+
+            /* Parent BLUE */
+
+            accountLink.classList.add(
+                "active"
             );
 
 
-        if (activeLink) {
-            activeLink.classList.add("active");
-        }
+            /* Arrow UP */
 
-    }
+            accountArrow.classList.remove(
+                "bi-chevron-down"
+            );
+
+            accountArrow.classList.add(
+                "bi-chevron-up"
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       ACCOUNT CREATION CLOSE
+       ===================================================== */
+
+    accountMenu.addEventListener(
+        "hidden.bs.collapse",
+        function () {
+
+
+            /*
+             * Don't remove blue if the current
+             * page belongs to Account Creation.
+             */
+
+            if (
+                !accountPages.includes(
+                    currentPage
+                )
+            ) {
+
+                accountLink.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            /* Arrow DOWN */
+
+            accountArrow.classList.remove(
+                "bi-chevron-up"
+            );
+
+            accountArrow.classList.add(
+                "bi-chevron-down"
+            );
+
+        }
+    );
 
 });

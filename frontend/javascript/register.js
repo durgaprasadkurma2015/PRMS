@@ -1029,4 +1029,266 @@ function popupOkAction() {
 
     }
 
-}
+}document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("accountForm");
+
+    if (!form) {
+        return;
+    }
+
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        let isValid = true;
+
+
+        /* =====================================
+           NORMAL INPUTS / SELECTS
+        ===================================== */
+
+        const fields = [
+
+            {
+                id: "prmsId",
+                error: "prmsIdError"
+            },
+
+            {
+                id: "vendorName",
+                error: "vendorNameError"
+            },
+
+            {
+                id: "dob",
+                error: "dobError"
+            },
+
+            {
+                id: "role",
+                error: "roleError"
+            },
+
+            {
+                id: "module",
+                error: "moduleError"
+            },
+
+            {
+                id: "contact",
+                error: "contactError"
+            },
+
+            {
+                id: "email",
+                error: "emailError"
+            },
+
+            {
+                id: "username",
+                error: "usernameError"
+            }
+
+        ];
+
+
+        fields.forEach(function (field) {
+
+            const input =
+                document.getElementById(field.id);
+
+            const error =
+                document.getElementById(field.error);
+
+
+            if (!input.value.trim()) {
+
+                input.classList.add("is-invalid");
+
+                error.classList.add("show");
+
+                isValid = false;
+
+            } else {
+
+                input.classList.remove("is-invalid");
+
+                error.classList.remove("show");
+
+            }
+
+        });
+
+
+        /* =====================================
+           GENDER
+        ===================================== */
+
+        const gender =
+            document.querySelector(
+                'input[name="gender"]:checked'
+            );
+
+        const genderError =
+            document.getElementById(
+                "genderError"
+            );
+
+
+        if (!gender) {
+
+            genderError.classList.add("show");
+
+            isValid = false;
+
+        } else {
+
+            genderError.classList.remove("show");
+
+        }
+
+
+        /* =====================================
+           EMAIL FORMAT
+        ===================================== */
+
+        const email =
+            document.getElementById("email");
+
+
+        if (
+            email.value.trim() !== "" &&
+            !email.validity.valid
+        ) {
+
+            email.classList.add("is-invalid");
+
+            document
+                .getElementById("emailError")
+                .classList.add("show");
+
+            isValid = false;
+
+        }
+
+
+        /* =====================================
+           SUCCESS
+        ===================================== */
+
+        if (isValid) {
+
+            console.log(
+                "All fields are valid."
+            );
+
+
+            /*
+             * Put your existing account
+             * creation code here.
+             */
+
+        }
+
+    });
+
+
+    /* =====================================
+       REMOVE RED ERROR WHILE TYPING
+    ===================================== */
+
+    const fields =
+        document.querySelectorAll(
+            "#accountForm input, #accountForm select"
+        );
+
+
+    fields.forEach(function (field) {
+
+        field.addEventListener(
+            "input",
+            function () {
+
+                this.classList.remove(
+                    "is-invalid"
+                );
+
+
+                const error =
+                    document.getElementById(
+                        this.id + "Error"
+                    );
+
+
+                if (error) {
+
+                    error.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+
+        field.addEventListener(
+            "change",
+            function () {
+
+                this.classList.remove(
+                    "is-invalid"
+                );
+
+
+                const error =
+                    document.getElementById(
+                        this.id + "Error"
+                    );
+
+
+                if (error) {
+
+                    error.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* =====================================
+       GENDER ERROR REMOVE
+    ===================================== */
+
+    document
+        .querySelectorAll(
+            'input[name="gender"]'
+        )
+        .forEach(function (radio) {
+
+            radio.addEventListener(
+                "change",
+                function () {
+
+                    document
+                        .getElementById(
+                            "genderError"
+                        )
+                        .classList.remove(
+                            "show"
+                        );
+
+                }
+            );
+
+        });
+
+});
+

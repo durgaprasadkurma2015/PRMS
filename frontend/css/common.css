@@ -188,6 +188,107 @@ body {
     background: #f5f6fa;
 }
 
+/* =========================
+   ACCOUNT CREATION SUBMENU
+   ========================= */
+
+#accountCreationMenu {
+    margin-top: 5px;
+}
+
+
+/* Submenu links */
+
+#accountCreationMenu .submenu-link {
+
+    color: #d9e6f2;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-left: 3px solid transparent;
+
+    border-radius: 8px;
+
+    margin: 4px 8px 4px 0;
+
+    padding: 10px 12px;
+
+    font-size: 14px;
+
+    transition:
+        all 0.25s ease;
+
+}
+
+
+/* Icons */
+
+#accountCreationMenu .submenu-link i {
+
+    color: #8ec5ff;
+
+    transition:
+        all 0.25s ease;
+
+}
+
+
+/* Hover */
+
+#accountCreationMenu .submenu-link:hover {
+
+    background: linear-gradient(
+        90deg,
+        rgba(13, 110, 253, 0.25),
+        rgba(13, 110, 253, 0.08)
+    );
+
+    color: #ffffff;
+
+    border-left-color: #4dabff;
+
+    transform: translateX(4px);
+
+}
+
+
+/* Hover icon */
+
+#accountCreationMenu .submenu-link:hover i {
+
+    color: #ffffff;
+
+}
+
+
+/* Active submenu */
+
+#accountCreationMenu .submenu-link.active {
+
+    background: linear-gradient(
+        90deg,
+        #0d6efd,
+        #2563eb
+    );
+
+    color: #ffffff;
+
+    border-left-color: #8ec5ff;
+
+    box-shadow:
+        0 4px 12px rgba(13, 110, 253, 0.35);
+
+}
+
+
+/* Active icon */
+
+#accountCreationMenu .submenu-link.active i {
+
+    color: #ffffff;
+
+}
+
 
 /* =================================
    FIXED SIDEBAR
@@ -201,7 +302,7 @@ body {
     left: 0;
     bottom: 55px;
 
-    width: 250px;
+    width: 270px;
 
     background-color: #212529;
 
